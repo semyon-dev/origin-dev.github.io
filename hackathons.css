@@ -1,28 +1,41 @@
 @import url('https://getbootstrap.com/dist/css/bootstrap.css');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
 @import url('https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css');
-@import url('style.css');
+@import "headings.css";
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
+@use "@material/button";
+@include button.core-styles;
+
 div {
-     /*alignment: center;*/
-     display: flex;
-     margin: 0 auto;
-     /*horiz-align: center;*/
-     /*text-align: center;*/
-     align-items: flex-start;
-     /*flex-direction: row;*/
-     /*align-content: center;*/
-     /*alignment-baseline: auto;*/
-     align-self: flex-start;
-     flex-direction: row;
-     flex-wrap: wrap;
- }
+    align-items: flex-start;
+    align-self: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.custom-text-button,
+.custom-contained-button {
+    --mdc-theme-primary: #03A9F4;
+    --mdc-theme-on-primary: #ffffff;
+}
+
+
+.button {
+    font-size: 15px !important;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    margin: 0 5px;
+
+}
 
 .container {
-    align-items: flex-start;
+    align-items: center;
     display: flex;
-    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    /*position: relative;*/
 }
 
 body {
@@ -41,10 +54,9 @@ p {
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
     position: center;
-    /*background: rgba(6, 43, 33, 0.6);*/
     color: #000000;
     text-align: center;
-    /*padding: 1em 2em;*/
+    margin-top: 0;
 }
 
 h2.ribbon {
