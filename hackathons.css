@@ -1,0 +1,52 @@
+@import url('https://getbootstrap.com/dist/css/bootstrap.css');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
+@import url('https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css');
+@import url('style.css');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+div {
+     /*alignment: center;*/
+     display: flex;
+     margin: 0 auto;
+     /*horiz-align: center;*/
+     /*text-align: center;*/
+     align-items: flex-start;
+     /*flex-direction: row;*/
+     /*align-content: center;*/
+     /*alignment-baseline: auto;*/
+     align-self: flex-start;
+     flex-direction: row;
+     flex-wrap: wrap;
+ }
+
+.container {
+    align-items: flex-start;
+    display: flex;
+    position: relative;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+@import "h1";
+}
+
+
+p {
+    font-size: 20px !important;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    position: center;
+    /*background: rgba(6, 43, 33, 0.6);*/
+    color: #000000;
+    text-align: center;
+    /*padding: 1em 2em;*/
+}
+
+h2.ribbon {
+@import "h1";
+}
