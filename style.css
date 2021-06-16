@@ -3,6 +3,20 @@
 @import url('https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css');
 @import "headings.css";
 
+@use "@material/card";
+@include card.core-styles;
+
+.my-card {
+    height: 300px;
+    width: 300px;
+    box-shadow: 0px 0px 7px #456e7d;
+    margin: 10px;
+}
+
+.my-mdc-button__label{
+    color: #03A9F4;
+}
+
 .team-members {
     display: block;
     margin: 0 auto;
@@ -14,6 +28,16 @@
     align-content: center;
     alignment-baseline: center;
     align-self: center;
+}
+
+.border-transition {
+    border: white 1px solid;
+    transition: all 0.2s ease-out;
+    border-radius: 6px;
+}
+
+.border-transition:hover {
+    border-color: #03A9F4;
 }
 
 .items {
@@ -58,13 +82,15 @@
 }
 
 .image_small {
-    horiz-align: center;
-    margin: 15px;
-    padding: 15px;
-    border: 0;
-    outline: 0;
-    margin-block-end: 5px;
-    margin-inline-start: 50px;
+    alignment: left;
+    align-self: start;
+    align-content: flex-start;
+    margin: 10px;
+    padding: 10px;
+    /*border: 0;*/
+    /*outline: 0;*/
+    /*margin-block-end: 5px;*/
+    margin-inline-start: 0;
     /*border-radius: 100%; !* Радиус скругления *!*/
     /*display: inline-block;*/
 }

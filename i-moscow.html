@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="fileRequest" class="dwnld-cta">Скачать APK</button>
+
+
+<script>
+    const download = document.getElementById("fileRequest");
+
+    download.addEventListener('click', request);
+
+    function request() {
+        window.location = 'app.apk';
+    }
+</script>
+
+
+</body>
+</html>
