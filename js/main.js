@@ -25,7 +25,12 @@ document.addEventListener('scroll', e => {
 })
 
 headerLinks.forEach(link => {
-  link.addEventListener('click', e => e.target.classList.add('header__link_pre-active'));
+  link.addEventListener('click', e => {
+    e.target.classList.add('header__link_pre-active');
+    setTimeout(() => {
+      e.target.classList.remove('header__link_pre-active');
+    }, 1000);
+  });
 })
 
 
