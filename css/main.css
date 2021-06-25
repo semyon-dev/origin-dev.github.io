@@ -214,7 +214,7 @@ body {
   width: 50vw;
 
   border-radius: 0 0 32px 0;
-  background-image: url("/img/hero.jpg");
+  background-image: url("img/hero.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
