@@ -1,195 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
+
 <head>
-    <meta charset="utf-8">
-    <title>origin dev</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <title>origin-dev</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--todo------------------------ Open Graph Protocol -------------------------->
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <!-------------------------- Favicon -------------------------->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2998ff">
+  <meta name="msapplication-TileColor" content="#2998ff">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+  <!-- Place favicon.ico in the root directory -->
+
+  <!-------------------------- Styles -------------------------->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
-<h1 class="ribbon"><strong class="ribbon-content">origin dev</strong></h1>
-<h2 class="ribbon"><strong class="ribbon-content">Главный состав</strong></h2>
 
-<div class="container">
-    <div class="row divS">
-        <div class="col align-self-start">
-            <div class="container">
-                <img class="image" style="horiz-align: center;" src="images/team/semyon.jpg" height="320" alt="">
-                <img class="img_tg" style="horiz-align: center;" src="images/tg.png" height="75" alt="" rel="#"
-                     onclick="window.open('https://t.me/semyon_dev')">
-            </div>
-            <p class="text-member">Семён Новиков</p>
-            <p class="text-member">team lead & backend developer</p>
-        </div>
-        <div class="col align-self-start">
-            <div class="container">
-                <img class="image" style="horiz-align: center;" src="images/dima.jpg" height="320" alt="">
-                <img class="img_tg" style="horiz-align: center;" src="images/tg.png" height="75" alt="" rel="#"
-                     onclick="window.open('https://t.me/dchudik')"></div>
-            <p class="text-member">Дмитрий Чудинов</p>
-            <p class="text-member">fullstack developer</p>
-        </div>
-        <div class="col align-self-start">
-            <div class="container">
-                <img class="image" style="horiz-align: center;" src="images/valera.jpg" height="320" alt="">
-                <img class="img_tg" style="horiz-align: center;" src="images/tg.png" height="75" alt="" rel="#"
-                     onclick="window.open('https://t.me/lermanlermanlerman')">
-            </div>
-            <p class="text-member">Валерий Алюшин</p>
-            <p class="text-member">designer & backend developer</p>
-        </div>
-        <div class="col align-self-start">
-            <div class="container">
-                <img class="image" style="horiz-align: center;" src="images/team/lena.jpg" height="320" alt="">
-                <img class="img_tg" style="horiz-align: center;" src="images/tg.png" height="75" alt="" rel="#"
-                     onclick="window.open('https://t.me/lexysexy')">
-            </div>
-            <p class="text-member">Елена Верешкова</p>
-            <p class="text-member">android developer</p>
-        </div>
-        <div class="col align-self-start">
-            <div class="container">
-                <img class="image" style="horiz-align: center;" src="images/team/andrey-n.jpeg" height="320" alt="">
-                <img class="img_tg" style="horiz-align: center;" src="images/tg.png" height="75" alt="" rel="#"
-                     onclick="window.open('https://t.me/andronax')">
-            </div>
-            <p class="text-member">Андрей Небогатиков</p>
-            <p class="text-member">flutter developer</p>
-        </div>
+  <!-------------------------- Content -------------------------->
+  <header class="header">
+    <div class="header__content">
+      <a class="header__logo-link" href="#hero"><img class="header__logo" src="./img/header__logo.svg" alt="logo"></a>
+      <ul class="header__list">
+        <li class="header__list-item">
+          <a class="header__link" href="#hero">Главная</a>
+        </li>
+        <li class="header__list-item">
+          <a class="header__link" href="#projects">Проекты</a>
+        </li>
+        <li class="header__list-item">
+          <a class="header__link" href="#achivments">Достижения</a>
+        </li>
+        <li class="header__list-item">
+          <a class="header__link" href="#contacts">Контакты</a>
+        </li>
+      </ul>
     </div>
-</div>
+  </header>
 
-<h2 class="ribbon"><strong class="ribbon-content">Juniors</strong></h2>
 
-<div class="container">
-    <div class="row">
-        <div class="col align-self-start">
-            <img class="image" style="horiz-align: center;" src="images/zeka.jpg" height="250" alt="">
-            <p class="text-member">Евгений Князев</p>
-            <p class="text-member">frontend & machine learning</p>
+  <main>
+    <div class="hero" id="hero">
+      <div class="hero__image"></div>
+      <div class="hero__content">
+        <div class="hero__content-wrapper">
+          <img class="hero__logo" src="./img/hero__logo.svg" alt="Our logo" class="hero__logo">
+          <p class="hero__paragraph">Команда разработки IT&#8209;продуктов и решения Ваших бизнес&#8209;задач. Создаём новое с 2020 года.</p>
+          <a class="hero__button button" href="#contacts">Связаться</a>
         </div>
-        <div class="col align-self-start">
-            <img class="image" style="horiz-align: center;" src="images/kesha.jpg" height="250" alt="">
-            <p class="text-member">Иннокентий Ткаченко</p>
-            <p class="text-member">fullstack developer</p>
-        </div>
-        <div class="col align-self-start">
-            <img class="image" style="horiz-align: center;" src="images/andrey.jpg" height="250" alt="">
-            <p class="text-member">Андрей Козлов</p>
-            <p class="text-member">backend developer</p>
-        </div>
-        <div class="col align-self-start">
-            <img class="image" style="horiz-align: center;" src="images/team/vanya-popov.jpeg" height="250" alt="">
-            <p class="text-member">Иван Попов</p>
-            <p class="text-member">python & machine learning</p>
-        </div>
-
-        <div class="col align-self-start">
-            <img class="image" style="horiz-align: center;" src="images/team/dima-ch.jpg" height="250" alt="">
-            <p class="text-member">Дмитрий Черваков</p>
-            <p class="text-member">designer</p>
-        </div>
+      </div>
     </div>
-</div>
-
-<h1 class="ribbon"><strong class="ribbon-content">Хакатоны</strong></h1>
-<div class="row">
-    <div class="col align-self-start">
-        <div class="mdc-card my-card" onclick="window.location='hack_bgl.html'">
-            <div class="mdc-card__content">
-                <img class="image_small" src="images/bgl_logo.png" height="55" alt="">
-                <p class="text-member">Cryptowallet Kickstart by BGL</p>
-                <p class="text-member">1 место</p>
-            </div>
-            <div class="mdc-card__actions">
-                <button class="mdc-button mdc-card__action mdc-card__action--button">
-                    <div class="mdc-button__ripple"></div>
-                    <span class="mdc-button__label my-mdc-button__label">Подробнее</span>
-                </button>
-            </div>
+    <div class="hero" id="projects">
+      <div class="hero__image"></div>
+      <div class="hero__content">
+        <div class="hero__content-wrapper">
+          <img class="hero__logo" src="./img/hero__logo.svg" alt="Our logo" class="hero__logo">
+          <p class="hero__paragraph">Команда разработки IT&#8209;продуктов и решения Ваших бизнес&#8209;задач. Создаём новое с 2020 года.</p>
+          <a class="hero__button button" href="#contacts">Связаться</a>
         </div>
+      </div>
     </div>
-    <div class="col align-self-start">
-        <div class="mdc-card my-card" onclick="window.location='hack_dev.html'">
-            <div class="mdc-card__content">
-                <img class="image_small" src="images/dev-hack.jpg" height="55" alt="">
-                <p class="text-member">dev hack</p>
-                <p class="text-member">1 место</p>
-            </div>
-            <div class="mdc-card__actions">
-                <button class="mdc-button mdc-card__action mdc-card__action--button">
-                    <div class="mdc-button__ripple"></div>
-                    <span class="mdc-button__label my-mdc-button__label">Подробнее</span>
-                </button>
-            </div>
+    <div class="hero" id="achivments">
+      <div class="hero__image"></div>
+      <div class="hero__content">
+        <div class="hero__content-wrapper">
+          <img class="hero__logo" src="./img/hero__logo.svg" alt="Our logo" class="hero__logo">
+          <p class="hero__paragraph">Команда разработки IT&#8209;продуктов и решения Ваших бизнес&#8209;задач. Создаём новое с 2020 года.</p>
+          <a class="hero__button button" href="#contacts">Связаться</a>
         </div>
+      </div>
     </div>
-    <div class="col align-self-start">
-        <div class="mdc-card my-card" onclick="window.location='i-moscow.html'">
-            <div class="mdc-card__content">
-                <img class="image_small" src="images/msc.jpg" height="55" alt="">
-                <p class="text-member">Moscow City Hack</p>
-                <p class="text-member">1 место</p>
-            </div>
-            <div class="mdc-card__actions">
-                <button class="mdc-button mdc-card__action mdc-card__action--button">
-                    <div class="mdc-button__ripple"></div>
-                    <span class="mdc-button__label my-mdc-button__label">Подробнее</span>
-                </button>
-            </div>
+    <div class="hero" id="contacts">
+      <div class="hero__image"></div>
+      <div class="hero__content">
+        <div class="hero__content-wrapper">
+          <img class="hero__logo" src="./img/hero__logo.svg" alt="Our logo" class="hero__logo">
+          <p class="hero__paragraph">Команда разработки IT&#8209;продуктов и решения Ваших бизнес&#8209;задач. Создаём новое с 2020 года.</p>
+          <a class="hero__button button" href="#contacts">Связаться</a>
         </div>
+      </div>
     </div>
-    <div class="col align-self-start">
-        <div class="mdc-card my-card" onclick="window.location='hack2.html'">
-            <div class="mdc-card__content">
-                <img class="image_small" src="images/hack2.jpg" height="55" alt="">
-                <p class="text-member">Хакатон труда 2</p>
-                <p class="text-member">1 место</p>
-            </div>
-            <div class="mdc-card__actions">
-                <button class="mdc-button mdc-card__action mdc-card__action--button">
-                    <div class="mdc-button__ripple"></div>
-                    <span class="mdc-button__label my-mdc-button__label">Подробнее</span>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="col align-self-start">
-        <div class="mdc-card my-card" onclick="window.location='hack_un.html'">
-            <div class="mdc-card__content">
-                <img class="image_small" src="images/hu.png" height="55" alt="">
-                <p class="text-member">hack university</p>
-                <p class="text-member">2 место</p>
-            </div>
-            <div class="mdc-card__actions">
-                <button class="mdc-button mdc-card__action mdc-card__action--button">
-                    <div class="mdc-button__ripple"></div>
-                    <span class="mdc-button__label my-mdc-button__label">Подробнее</span>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
 
+  </main>
 
-<h1 class="ribbon"><strong class="ribbon-content">Проекты</strong></h1>
-<div class="container">
-    <div class="col align-self-start">
-        <img class="logo_project" style="horiz-align: center;" src="images/9-18.png" height="50" alt="">
-        <p class="text-member">Сервис для поиска сотрудников</p>
-        <a class="a" target="_blank" rel="noopener noreferrer" href="https://9-18.ru">9-18.ru</a>
-    </div>
-</div>
+  <!-------------------------- Scripts -------------------------->
+  <script src="js/main.js"></script>
 
-<footer>
-    <p></p>
-    <div class="container text-white-50 text-center">
-        <h5 class="ribbon">Copyright &copy; 2021 | <a class="a"
-                                                      target="_blank" rel="noopener noreferrer"
-                                                      href="https://t.me/semyon_dev">origin dev</a>
-        </h5>
-    </div>
-</footer>
-
-
+  <!--todo------------------------ Google Analytics -------------------------->
+  <!--! Change UA-XXXXX-Y to be your site's ID. -->
+  <!-- <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script> -->
 </body>
+
 </html>
