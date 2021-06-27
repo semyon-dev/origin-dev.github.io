@@ -344,6 +344,17 @@ body {
    ========================================================================== */
 
 /*
+ * Just add this on your sections to prevent fixed header overlap
+ */
+
+.header-fix::before {
+  content: "";
+  display: block;
+  height: 9rem;
+  margin-top: -9rem;
+}
+
+/*
  * Hide visually and from screen readers
  */
 

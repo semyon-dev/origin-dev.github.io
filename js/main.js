@@ -1,7 +1,6 @@
 // variables
 const screens = document.querySelector('main').children;
-const screensScrollPoints = Array.from(screens)
-  .map(screen => screen.scrollHeight);
+const screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
 const headerLinks = document.querySelectorAll('.header__link');
 let activeLink = 0;
 
@@ -9,18 +8,16 @@ let activeLink = 0;
 
 // code
 addActiveHeaderLink();
-for (let i = 0; i < screensScrollPoints.length; i++)
-  if (i !== 0)
-    screensScrollPoints[i] += screensScrollPoints[i - 1] - 1;
-  else
-    screensScrollPoints[i] = 0;
+
+console.log(screenScrollPoints);
 
 
 
 // event listeneres
 document.addEventListener('scroll', e => {
-  if (intervalSearch(window.scrollY, screensScrollPoints) !== activeLink) {
-    changeLink(intervalSearch(window.scrollY, screensScrollPoints));
+  console.log(window.scrollY);
+  if (intervalSearch(window.scrollY, screenScrollPoints) !== activeLink) {
+    changeLink(intervalSearch(window.scrollY, screenScrollPoints));
   }
 })
 
@@ -36,6 +33,16 @@ headerLinks.forEach(link => {
 
 
 // functions
+function makeScreenScrollPoints(screens) {
+  const screenScrollPoints = [0];
+  const headerHeight = 90;
+  for (let i = 0; i < screens.length - 1; i++) {
+    screenScrollPoints[i + 1] = screenScrollPoints[i] + screens[i].scrollHeight - 1 - headerHeight;
+  }
+
+  return screenScrollPoints;
+}
+
 function intervalSearch(num, intervals) {
   for (let i = 0; i < intervals.length - 1; i++) {
     if (num >= intervals[i] && num < intervals[i + 1])
