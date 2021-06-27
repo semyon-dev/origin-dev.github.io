@@ -97,38 +97,68 @@ body {
 
 .button {
   position: relative;
-  bottom: 0;
-  
-  padding: 1em 7em;
-  box-sizing: border-box;
-  border-radius: 16px;
+
   border: none;
-  
+  border-radius: 16px;
+
   font-weight: bold;
   font-size: 2rem;
   text-decoration: none;
-  
-  color: #fff;
-  background-color: #2998FF;
-  box-shadow: 0 0 0 #000;
 
   cursor: pointer;
-  transition: .1s ease-out;
 }
 
-.button:focus,
-.button:hover {
+.button__shadow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  border-radius: 16px;
+  background: #242424;
+  opacity: 1;
+  transition: opacity .1s ease-out;
+}
+
+.button:focus .button__shadow,
+.button:hover .button__shadow {
+  opacity: .8;
+}
+
+.button:active .button__shadow {
+  opacity: 1;
+  transition-duration: .05s;
+}
+
+.button__body {
+  display: block;
+  position: relative;
+  bottom: 0;
+  left: 0;
+
+  padding: 1em 7em;
+  box-sizing: border-box;
+  border-radius: 16px;
+
+  color: #fff;
+  background-color: #2998FF;
+
+  z-index: 1;
+  transition: bottom .1s ease-out;
+}
+
+.button:focus .button__body,
+.button:hover .button__body {
   outline: none;
-  bottom: .3em;
-  box-shadow: 0em 0.3em #242424;
+  bottom: .4em;
   background-color: #2DA7FF;
 }
 
-.button:active {
+.button:active .button__body {
   bottom: 0;
-  box-shadow: 0 0 rgba(0, 0, 0, 1);
   background-color: #2998FF;
-  transition: .05s;
+  transition-duration: .05s;
 }
 
 
@@ -139,7 +169,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 1000;
   background-color: #fff;
   box-shadow: 0 4px 11px rgba(0, 0, 0, 0.05);
 }
