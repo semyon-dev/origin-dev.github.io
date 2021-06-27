@@ -374,8 +374,8 @@ body {
 .header-fix::before {
   content: "";
   display: block;
-  height: 9rem;
-  margin-top: -9rem;
+  height: 90px;
+  margin-top: -90px;
 }
 
 /*
