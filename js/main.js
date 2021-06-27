@@ -1,6 +1,6 @@
 // variables
 const screens = document.querySelector('main').children;
-const screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
+let screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
 const headerLinks = document.querySelectorAll('.header__link');
 let activeLink = 0;
 
@@ -9,13 +9,22 @@ let activeLink = 0;
 // code
 addActiveHeaderLink();
 
-console.log(screenScrollPoints);
 
 
+// event listeners
+(function(){ //zoom listener
+  var lastWidth = 0;
+  function pollZoomFireEvent() {
+    var widthNow = window.innerWidth;
+    if (lastWidth == widthNow) return;
+    lastWidth = widthNow;
+    // Length changed, user must have zoomed, invoke listeners.
+    screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
+  }
+  setInterval(pollZoomFireEvent, 100);
+})();
 
-// event listeneres
 document.addEventListener('scroll', e => {
-  console.log(window.scrollY);
   if (intervalSearch(window.scrollY, screenScrollPoints) !== activeLink) {
     changeLink(intervalSearch(window.scrollY, screenScrollPoints));
   }
@@ -33,11 +42,23 @@ headerLinks.forEach(link => {
 
 
 // functions
+function getAbsoluteHeight(el) {
+  let styles = window.getComputedStyle(el);
+  let margin = parseFloat(styles['marginTop']) +
+               parseFloat(styles['marginBottom']);
+
+  return Math.ceil(el.offsetHeight + margin);
+}
+
 function makeScreenScrollPoints(screens) {
-  const screenScrollPoints = [0];
   const headerHeight = 90;
+  const screenScrollPoints = [(-1 * headerHeight - 1)];
+
   for (let i = 0; i < screens.length - 1; i++) {
-    screenScrollPoints[i + 1] = screenScrollPoints[i] + screens[i].scrollHeight - 1 - headerHeight;
+    if (screens[i].id === "")
+      screenScrollPoints[screenScrollPoints.length - 1] += getAbsoluteHeight(screens[i]);
+    else
+      screenScrollPoints[screenScrollPoints.length] = screenScrollPoints[screenScrollPoints.length - 1] + getAbsoluteHeight(screens[i]) - 1;
   }
 
   return screenScrollPoints;
@@ -67,3 +88,4 @@ function changeLink(number) {
   clearActiveHeaderLinks();
   addActiveHeaderLink();
 }
+

@@ -95,6 +95,14 @@ body {
   font-size: 1.6rem;
 }
 
+.max-width-1120 {
+  max-width: 1120px;
+}
+
+
+/* --------------------
+         button
+-------------------- */
 .button {
   position: relative;
 
@@ -162,9 +170,11 @@ body {
 }
 
 
-
+/* --------------------
+        header
+-------------------- */
 .header {
-  height: 9rem;
+  height: 90px;
   width: 100vw;
   position: fixed;
   top: 0;
@@ -273,7 +283,9 @@ body {
 }
 
 
-
+/* --------------------
+         hero
+-------------------- */
 .hero {
   padding-top: 9rem;
   box-sizing: border-box;
@@ -337,6 +349,18 @@ body {
 .hero__button {
   margin-top: 3rem;
   width: 100%;
+}
+
+
+/* --------------------
+      what-we-do
+-------------------- */
+.what-we-do {
+  margin: 0 auto;
+}
+
+.what-we-do__header {
+  margin: 0;
 }
 
 /* ==========================================================================
