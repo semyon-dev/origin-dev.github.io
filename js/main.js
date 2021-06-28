@@ -1,7 +1,7 @@
 // variables
 const screens = document.querySelector('main').children;
-let screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
 const headerLinks = document.querySelectorAll('.header__link');
+let screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
 let activeLink = 0;
 
 
@@ -14,10 +14,14 @@ addActiveHeaderLink();
 // event listeners
 (function(){ //zoom listener
   var lastWidth = 0;
+  var lastHeight = 0;
   function pollZoomFireEvent() {
     var widthNow = window.innerWidth;
-    if (lastWidth == widthNow) return;
+    var heightNow = window.innerHeight;
+
+    if (lastWidth == widthNow && lastHeight == heightNow) return;
     lastWidth = widthNow;
+    lastHeight = heightNow;
     // Length changed, user must have zoomed, invoke listeners.
     screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
   }
