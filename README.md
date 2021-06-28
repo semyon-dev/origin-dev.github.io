@@ -1,3 +1,3 @@
 # origin-dev.github.io
 
-[origin-dev.tech](origin-dev.tech)
+[origin-dev.tech](https://origin-dev.tech)
