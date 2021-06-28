@@ -1,6 +1,7 @@
 // variables
 const screens = document.querySelector('main').children;
 const headerLinks = document.querySelectorAll('.header__link');
+const scrollToTopButton = document.querySelector('.scroll-to-top');
 let screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
 let activeLink = 0;
 
@@ -32,6 +33,10 @@ document.addEventListener('scroll', e => {
   if (intervalSearch(window.scrollY, screenScrollPoints) !== activeLink) {
     changeLink(intervalSearch(window.scrollY, screenScrollPoints));
   }
+  if (window.scrollY >= screens[0].scrollHeight - 91)
+    scrollToTopButton.classList.add('scroll-to-top_active');
+  else
+    scrollToTopButton.classList.remove('scroll-to-top_active');
 })
 
 headerLinks.forEach(link => {

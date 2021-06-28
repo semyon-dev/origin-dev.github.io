@@ -372,9 +372,9 @@ body {
 }
 
 @media screen and (max-width: 500px) {
-  .hero__button {
+  /* .hero__button {
 
-  }
+  } */
 
   .hero__content-wrapper {
     max-width: none;
@@ -387,7 +387,7 @@ body {
       what-we-do
 -------------------- */
 .what-we-do {
-  margin: 12.8rem auto 0;
+  margin: 12.8rem auto;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -458,9 +458,12 @@ body {
 }
 
 
-.projects {
-  margin-top: 12.8rem;
-}
+/* --------------------
+        projects
+-------------------- */
+/* .projects {
+  
+} */
 
 
 /* --------------------
@@ -496,6 +499,38 @@ body {
 
 .contacts {
   background-color: #00509A;
+}
+
+/* --------------------
+    scroll-to-top
+-------------------- */
+.scroll-to-top {
+  position: fixed;
+  bottom: -128px;
+  right: -128px;
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+  background-color: #2998FF;
+  background-image: url('../img/scroll-to-top.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1000;
+  transition: right .5s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+              bottom .5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.scroll-to-top:hover {
+  background-color: #2DA7FF;
+}
+
+.scroll-to-top:active {
+  background-color: #2998FF;
+}
+
+.scroll-to-top_active {
+  right: 5%;
+  bottom: 7%;
 }
 
 /* ==========================================================================
