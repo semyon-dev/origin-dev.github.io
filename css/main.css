@@ -443,10 +443,34 @@ body {
   transform: translateY(-50%);
   width: 32px;
   height: 32px;
-  background-image: url('../img/what-we-do__desc-term.svg');
+  
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center;
+}
+
+.what-we-do__desc-term_type_mobile::before {
+  background-image: url('../img/what-we-do__mobile.svg');
+}
+
+.what-we-do__desc-term_type_web::before {
+  background-image: url('../img/what-we-do__web.svg');
+}
+
+.what-we-do__desc-term_type_blockchain::before {
+  background-image: url('../img/what-we-do__blockchain.svg');
+}
+
+.what-we-do__desc-term_type_machine-learning::before {
+  background-image: url('../img/what-we-do__machine-learning.svg');
+}
+
+.what-we-do__desc-term_type_design::before {
+  background-image: url('../img/what-we-do__design.svg');
+}
+
+.what-we-do__desc-term_type_ux::before {
+  background-image: url('../img/what-we-do__ux.svg');
 }
 
 .what-we-do__image {
