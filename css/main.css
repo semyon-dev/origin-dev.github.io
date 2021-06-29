@@ -157,7 +157,7 @@ body {
   background-color: #2998FF;
 
   z-index: 1;
-  transition: background-color .25s ease-out .1s;
+  transition: background-color .25s .1s;
 }
 
 .button:focus .button__body,
@@ -165,13 +165,14 @@ body {
   outline: none;
   /* bottom: .4em; */
   background-color: #00509A;
+  transition-delay: 0s;
 }
 
-.button:active .button__body {
+/* .button:active .button__body {
   bottom: 0;
   background-color: #2998FF;
   transition-duration: 0s;
-}
+} */
 
 
 /* --------------------
@@ -546,16 +547,18 @@ body {
   background-position: center;
   z-index: 1000;
   transition: right .5s cubic-bezier(0.68, -0.6, 0.32, 1.6),
-              bottom .5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+              bottom .5s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+              background-color .25s .1s;
 }
 
 .scroll-to-top:hover {
-  background-color: #2DA7FF;
+  background-color: #00509A;
+  transition-delay: 0s;
 }
-
+/*
 .scroll-to-top:active {
   background-color: #2998FF;
-}
+} */
 
 .scroll-to-top_active {
   right: 5%;
