@@ -128,10 +128,10 @@ body {
 
   border-radius: 16px;
   background: #242424;
-  opacity: 1;
-  transition: opacity .1s ease-out;
+  opacity: 0;
+  /* transition: opacity .1s ease-out; */
 }
-
+/* 
 .button:focus .button__shadow,
 .button:hover .button__shadow {
   opacity: .8;
@@ -140,7 +140,7 @@ body {
 .button:active .button__shadow {
   opacity: 1;
   transition-duration: .05s;
-}
+} */
 
 .button__body {
   display: block;
@@ -157,20 +157,20 @@ body {
   background-color: #2998FF;
 
   z-index: 1;
-  transition: bottom .1s ease-out;
+  transition: background-color .25s ease-out .1s;
 }
 
 .button:focus .button__body,
 .button:hover .button__body {
   outline: none;
-  bottom: .4em;
-  background-color: #2DA7FF;
+  /* bottom: .4em; */
+  background-color: #00509A;
 }
 
 .button:active .button__body {
   bottom: 0;
   background-color: #2998FF;
-  transition-duration: .05s;
+  transition-duration: 0s;
 }
 
 
@@ -220,7 +220,7 @@ body {
 
 .header__logo-link:focus .header__logo,
 .header__logo-link:hover .header__logo {
-  filter: brightness(0);
+  filter: brightness(0.57);
   transition-delay: 0s;
 }
 
