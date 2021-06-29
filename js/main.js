@@ -30,9 +30,12 @@ addActiveHeaderLink();
 })();
 
 document.addEventListener('scroll', e => {
+  //header links underline
   if (intervalSearch(window.scrollY, screenScrollPoints) !== activeLink) {
     changeLink(intervalSearch(window.scrollY, screenScrollPoints));
   }
+
+  //scroll-to-top button
   if (window.scrollY >= screens[0].scrollHeight - 91)
     scrollToTopButton.classList.add('scroll-to-top_active');
   else
