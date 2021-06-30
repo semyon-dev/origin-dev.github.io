@@ -8,6 +8,11 @@ let activeLink = 0;
 
 
 // code
+fetch("../content/projects.json")
+  .then(response => response.json())
+  .then(json => {
+    
+  });
 addActiveHeaderLink();
 
 
@@ -36,10 +41,14 @@ document.addEventListener('scroll', e => {
   }
 
   //scroll-to-top button
-  if (window.scrollY >= screens[0].scrollHeight - 91)
+  if (window.scrollY >= screens[0].scrollHeight - 91) {
     scrollToTopButton.classList.add('scroll-to-top_active');
-  else
+    scrollToTopButton.tabIndex = 0;
+  }
+  else {
     scrollToTopButton.classList.remove('scroll-to-top_active');
+    scrollToTopButton.tabIndex = -1;
+  }
 })
 
 headerLinks.forEach(link => {

@@ -97,6 +97,7 @@ body {
 
 .max-width-1120 {
   max-width: 1120px;
+  margin: 0 auto;
   padding: 0 8px;
   box-sizing: border-box;
 }
@@ -117,6 +118,7 @@ body {
   text-align: center;
 
   cursor: pointer;
+  outline: none;
 }
 
 .button__shadow {
@@ -441,26 +443,6 @@ body {
   margin-left: 1.6rem;
 }
 
-.what-we-do__desc-term_type_web::before {
-  background-image: url('../img/what-we-do__web.svg');
-}
-
-.what-we-do__desc-term_type_blockchain::before {
-  background-image: url('../img/what-we-do__blockchain.svg');
-}
-
-.what-we-do__desc-term_type_machine-learning::before {
-  background-image: url('../img/what-we-do__machine-learning.svg');
-}
-
-.what-we-do__desc-term_type_design::before {
-  background-image: url('../img/what-we-do__design.svg');
-}
-
-.what-we-do__desc-term_type_ux::before {
-  background-image: url('../img/what-we-do__ux.svg');
-}
-
 .what-we-do__desc-def {
   margin: 1.6rem 0 0;
   font-size: 1.6rem;
@@ -480,22 +462,27 @@ body {
 /* --------------------
         projects
 -------------------- */
-/* .projects {
-  
-} */
+.projects {
+  font-size: 4.6rem;
+  line-height: 1;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.projects__header {
+
+}
 
 
 /* --------------------
         others
 -------------------- */
-.projects,
 .achievements,
 .contacts {
   height: 150vh;
   position: relative;
 }
 
-.projects::after,
 .achievements::after,
 .contacts::after {
   content: attr(id);
@@ -506,10 +493,6 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-}
-
-.projects {
-  background-color:#86C5FF;
 }
 
 .achievements {
@@ -540,7 +523,9 @@ body {
               background-color .25s .1s;
 }
 
+.scroll-to-top:focus,
 .scroll-to-top:hover {
+  outline: none;
   background-color: #00509A;
   transition-delay: 0s;
 }
