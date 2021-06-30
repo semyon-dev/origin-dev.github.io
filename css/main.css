@@ -107,75 +107,27 @@ body {
          button
 -------------------- */
 .button {
-  position: relative;
-
   border: none;
   border-radius: 16px;
+  color: #fff;
+  background-color: #2998FF;
+  padding: 1em 0;
 
   font-weight: bold;
   font-size: 2rem;
   text-decoration: none;
   text-align: center;
-
+  
   cursor: pointer;
   outline: none;
-}
-
-.button__shadow {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-
-  border-radius: 16px;
-  background: #242424;
-  opacity: 0;
-  /* transition: opacity .1s ease-out; */
-}
-/* 
-.button:focus .button__shadow,
-.button:hover .button__shadow {
-  opacity: .8;
-}
-
-.button:active .button__shadow {
-  opacity: 1;
-  transition-duration: .05s;
-} */
-
-.button__body {
-  display: block;
-  width: 100%;
-  position: relative;
-  bottom: 0;
-  left: 0;
-
-  padding: 1em 0;
-  box-sizing: border-box;
-  border-radius: 16px;
-
-  color: #fff;
-  background-color: #2998FF;
-
-  z-index: 1;
   transition: background-color .25s .1s;
 }
 
-.button:focus .button__body,
-.button:hover .button__body {
-  outline: none;
-  /* bottom: .4em; */
+.button:focus,
+.button:hover {
   background-color: #00509A;
   transition-delay: 0s;
 }
-
-/* .button:active .button__body {
-  bottom: 0;
-  background-color: #2998FF;
-  transition-duration: 0s;
-} */
-
 
 /* --------------------
         header
@@ -463,14 +415,81 @@ body {
         projects
 -------------------- */
 .projects {
-  font-size: 4.6rem;
-  line-height: 1;
-  text-transform: uppercase;
-  text-align: center;
+  margin-bottom: 10rem;
 }
 
 .projects__header {
+  font-size: 4.8rem;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 6.4rem;
+}
 
+.projects__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.projects__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 49%;
+
+  padding: 3.2rem 3.2rem 3.6rem;
+  background-color: #fff;
+  border-radius: 32px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.projects__card:not(:nth-last-of-type(-n + 2)) {
+  margin-bottom: 2%;
+}
+
+.project-card__image {
+  width: 100%;
+  object-fit: cover;
+  box-sizing: border-box;
+  border: 1px solid #BEBEBE;
+  border-radius: 16px;
+}
+
+.project-card__title {
+  margin: 0.5em 0 0;
+  font-size: 3.2rem;
+  line-height: 1;
+  font-weight: bold;
+  min-height: 2em;
+}
+
+.project-card__description {
+  flex: 1;
+  font-size: 1.6rem;
+  line-height: 1.25;
+  margin: 1em 0 3em;
+}
+
+/* .project-card__button {
+  
+} */
+
+.projects__more {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.projects__more-link {
+  font-size: 2.4rem;
+  color: #BEBEBE;
+  transition: color .25s .1s;
+}
+
+.projects__more-link:hover {
+  color: #242424;
+  transition-delay: 0s;
 }
 
 
@@ -550,8 +569,8 @@ body {
 .header-fix::before {
   content: "";
   display: block;
-  height: 90px;
-  margin-top: -90px;
+  height: 150px;
+  margin-top: -150px;
 }
 
 /*

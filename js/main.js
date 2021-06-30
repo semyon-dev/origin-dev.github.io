@@ -2,16 +2,26 @@
 const screens = document.querySelector('main').children;
 const headerLinks = document.querySelectorAll('.header__link');
 const scrollToTopButton = document.querySelector('.scroll-to-top');
+const projectsContent = document.querySelector('.projects__content');
+const projectTemplate = projectsContent.querySelector('template').content;
 let screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
 let activeLink = 0;
 
 
 
 // code
-fetch("../content/projects.json")
+fetch("../content/content.json")
   .then(response => response.json())
   .then(json => {
-    
+    const projects = json.projects;
+    for (let i = 0; i < 4; i++) {
+      const project = projectTemplate.cloneNode(true);
+      project.querySelector('.project-card__image').src = projects[i].imageURL;
+      project.querySelector('.project-card__image').alt = projects[i].imageAlt;
+      project.querySelector('.project-card__title').textContent = projects[i].title;
+      project.querySelector('.project-card__description').textContent = projects[i].description;
+      projectsContent.append(project);
+    }
   });
 addActiveHeaderLink();
 
@@ -73,7 +83,7 @@ function getAbsoluteHeight(el) {
 
 function makeScreenScrollPoints(screens) {
   const headerHeight = 90;
-  const screenScrollPoints = [(-1 * headerHeight - 1)];
+  const screenScrollPoints = [(-1 * headerHeight - 61)];
 
   for (let i = 0; i < screens.length - 1; i++) {
     if (screens[i].id === "")
