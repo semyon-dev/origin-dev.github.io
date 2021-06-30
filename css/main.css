@@ -214,14 +214,14 @@ body {
 }
 
 .header__logo {
+  fill: #2998FF;
   width: 100%;
-  filter: brightness(1);
-  transition: .25s .1s;
+  transition: fill .25s .1s;
 }
 
 .header__logo-link:focus .header__logo,
 .header__logo-link:hover .header__logo {
-  filter: brightness(0.57);
+  fill: #00509A;
   transition-delay: 0s;
 }
 
@@ -350,9 +350,8 @@ body {
 }
 
 .hero__logo-image {
-  user-select: none;
+  fill: #2998FF;
   width: 50%;
-  height: auto;
 }
 
 .hero__logo-header {
@@ -429,35 +428,17 @@ body {
 
 .what-we-do__desc-term {
   font-weight: bold;
-  font-size: 1.6rem;
-  padding-left: 4.8rem;
-  position: relative;
+  font-size: 0;
 }
 
-.what-we-do__desc-def {
-  margin: 1.6rem 0 0;
-  font-size: 1.6rem;
-  line-height: 1.3125;
-  letter-spacing: 0.3px;
-}
-
-.what-we-do__desc-term::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 32px;
-  height: 32px;
+/* .what-we-do__desc-term-image {
   
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center;
-}
+} */
 
-.what-we-do__desc-term_type_mobile::before {
-  background-image: url('../img/what-we-do__mobile.svg');
+.what-we-do__desc-term-text {
+  font-size: 1.6rem;
+  vertical-align: middle;
+  margin-left: 1.6rem;
 }
 
 .what-we-do__desc-term_type_web::before {
@@ -478,6 +459,13 @@ body {
 
 .what-we-do__desc-term_type_ux::before {
   background-image: url('../img/what-we-do__ux.svg');
+}
+
+.what-we-do__desc-def {
+  margin: 1.6rem 0 0;
+  font-size: 1.6rem;
+  line-height: 1.3125;
+  letter-spacing: 0.3px;
 }
 
 .what-we-do__image {
@@ -536,6 +524,9 @@ body {
     scroll-to-top
 -------------------- */
 .scroll-to-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   bottom: -128px;
   right: -128px;
@@ -543,9 +534,6 @@ body {
   height: 64px;
   border-radius: 100%;
   background-color: #2998FF;
-  background-image: url('../img/scroll-to-top.svg');
-  background-repeat: no-repeat;
-  background-position: center;
   z-index: 1000;
   transition: right .5s cubic-bezier(0.68, -0.6, 0.32, 1.6),
               bottom .5s cubic-bezier(0.68, -0.6, 0.32, 1.6),

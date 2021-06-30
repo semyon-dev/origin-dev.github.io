@@ -34,7 +34,9 @@
   <!-------------------------- Content -------------------------->
   <header class="header">
     <nav class="header__content">
-      <a class="header__logo-link" href="#hero"><img class="header__logo" src="./img/logo.svg" alt="logo"></a>
+      <a class="header__logo-link" href="#hero"><svg class="header__logo" viewBox="0 0 563 646">
+        <use xlink:href="./img/sprite.svg#logo"></use>
+      </svg></a>
       <ul class="header__list">
         <li class="header__list-item">
           <a class="header__link" href="#hero">Главная</a>
@@ -58,7 +60,9 @@
       <div class="hero__content">
         <div class="hero__content-wrapper">
           <div class="hero__logo">
-            <img class="hero__logo-image" src="./img/logo.svg" alt="Our logo" class="hero__logo">
+            <svg class="hero__logo-image" viewBox="0 0 563 646">
+              <use xlink:href="./img/sprite.svg#logo"></use>
+            </svg>
             <h1 class="hero__logo-header">Origin Dev</h1>
           </div>
           <p class="hero__paragraph">Команда разработки IT&#8209;продуктов и решения Ваших бизнес&#8209;задач. Создаём новое с 2020 года.</p>
@@ -74,27 +78,57 @@
         <h2 class="what-we-do__header">Что мы делаем?</h2>
         <dl class="what-we-do__desc-list">
           <div class="what-we-do__desc-item">
-            <dt class="what-we-do__desc-term what-we-do__desc-term_type_mobile">Мобильные приложения</dt>
+            <dt class="what-we-do__desc-term">
+              <svg class="what-we-do__desc-term-image" viewBox="0 0 32 32" width="32">
+                <use xlink:href="./img/sprite.svg#what-we-do__mobile"></use>
+              </svg>
+              <span class="what-we-do__desc-term-text">Мобильные приложения</span>
+            </dt>
             <dl class="what-we-do__desc-def">Разработка мобильных приложений с хорошим UX/UI. Предлагаем как кроссплатформенные, так и платформазависимые решения</dl>
           </div>
           <div class="what-we-do__desc-item">
-            <dt class="what-we-do__desc-term what-we-do__desc-term_type_web">Веб-приложения</dt>
+            <dt class="what-we-do__desc-term">
+              <svg class="what-we-do__desc-term-image" viewBox="0 0 32 32" width="32">
+                <use xlink:href="./img/sprite.svg#what-we-do__web"></use>
+              </svg>
+              <span class="what-we-do__desc-term-text">Веб-приложения</span>
+            </dt>
             <dl class="what-we-do__desc-def">Создание многофункциональных веб-сервисов под ключ. Простая интеграция в ваш бизнес с использованием современных технологий</dl>
           </div>
           <div class="what-we-do__desc-item">
-            <dt class="what-we-do__desc-term what-we-do__desc-term_type_blockchain">Блокчейн-проекты</dt>
+            <dt class="what-we-do__desc-term">
+              <svg class="what-we-do__desc-term-image" viewBox="0 0 32 32" width="32">
+                <use xlink:href="./img/sprite.svg#what-we-do__blockchain"></use>
+              </svg>
+              <span class="what-we-do__desc-term-text">Блокчейн-проекты</span>
+            </dt>
             <dl class="what-we-do__desc-def">Смарт-контракты, кошельки и любые разработки связанные с цифровыми активами</dl>
           </div>
           <div class="what-we-do__desc-item">
-            <dt class="what-we-do__desc-term what-we-do__desc-term_type_machine-learning">Машинное обучение</dt>
+            <dt class="what-we-do__desc-term">
+              <svg class="what-we-do__desc-term-image" viewBox="0 0 32 32" width="32">
+                <use xlink:href="./img/sprite.svg#what-we-do__machine-learning"></use>
+              </svg>
+              <span class="what-we-do__desc-term-text">Машинное обучение</span>
+            </dt>
             <dl class="what-we-do__desc-def">Машинное обучение и нейронные сети, а также их интеграции в ваш бизнес</dl>
           </div>
           <div class="what-we-do__desc-item">
-            <dt class="what-we-do__desc-term what-we-do__desc-term_type_design">Дизайн</dt>
+            <dt class="what-we-do__desc-term">
+              <svg class="what-we-do__desc-term-image" viewBox="0 0 32 32" width="32">
+                <use xlink:href="./img/sprite.svg#what-we-do__design"></use>
+              </svg>
+              <span class="what-we-do__desc-term-text">Дизайн</span>
+            </dt>
             <dl class="what-we-do__desc-def">Создание типографики. Применение правил композиции, создание паттернов. Разработка прототипов, UI-Kit</dl>
           </div>
           <div class="what-we-do__desc-item">
-            <dt class="what-we-do__desc-term what-we-do__desc-term_type_ux">Разработка UX</dt>
+            <dt class="what-we-do__desc-term">
+              <svg class="what-we-do__desc-term-image" viewBox="0 0 32 32" width="32">
+                <use xlink:href="./img/sprite.svg#what-we-do__ux"></use>
+              </svg>
+              <span class="what-we-do__desc-term-text">Разработка UX</span>
+            </dt>
             <dl class="what-we-do__desc-def">Проводим глубинные интервью, юзабилити-тестирования, опросы, и дневниковые исследования. Составление CJM и Service Blueprint</dl>
           </div>
         </dl>
@@ -112,7 +146,11 @@
     </section>
   </main>
 
-  <a class="scroll-to-top" href="#hero"></a>
+  <a class="scroll-to-top" href="#hero">
+    <svg viewBox="0 0 23 15" width="35%">
+      <use xlink:href="./img/sprite.svg#scroll-to-top"></use>
+    </svg>
+  </a>
 
 
   <!-------------------------- Scripts -------------------------->
