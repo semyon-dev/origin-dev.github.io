@@ -46,8 +46,10 @@ addActiveHeaderLink();
 
 document.addEventListener('scroll', e => {
   //header links underline
-  if (intervalSearch(window.scrollY, screenScrollPoints) !== activeLink) {
-    changeLink(intervalSearch(window.scrollY, screenScrollPoints));
+  screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
+  const currentActive = intervalSearch(window.scrollY, screenScrollPoints);
+  if (currentActive !== activeLink) {
+    changeLink(currentActive);
   }
 
   //scroll-to-top button

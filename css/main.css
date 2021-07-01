@@ -495,15 +495,45 @@ body {
 
 
 /* --------------------
+      achievements
+-------------------- */
+.achievements {
+  width: 100%;
+  padding: 2.5rem 0 3.6rem;
+  background-color: #2998FF;
+}
+
+.achievements__header {
+  margin: 0;
+  font-size: 4.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1;
+  text-align: center;
+  color: #fff;
+}
+
+.achievements__slider {
+  height: 300px;
+}
+
+.test {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: palevioletred;
+}
+
+/* --------------------
         others
 -------------------- */
-.achievements,
 .contacts {
   height: 150vh;
   position: relative;
 }
 
-.achievements::after,
 .contacts::after {
   content: attr(id);
   text-transform: uppercase;
@@ -513,10 +543,6 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-}
-
-.achievements {
-  background-color: #2998FF;
 }
 
 .contacts {
@@ -567,11 +593,14 @@ body {
  * Just add this on your sections to prevent fixed header overlap
  */
 
+ .header-fix {
+   margin-top: -150px;
+ }
+
 .header-fix::before {
   content: "";
   display: block;
   height: 150px;
-  margin-top: -150px;
 }
 
 /*
