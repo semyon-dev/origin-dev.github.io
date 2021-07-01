@@ -4,7 +4,7 @@ const headerLinks = document.querySelectorAll('.header__link');
 const scrollToTopButton = document.querySelector('.scroll-to-top');
 const projectsContent = document.querySelector('.projects__content');
 const projectTemplate = projectsContent.querySelector('template').content;
-let screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
+let screenScrollPoints;
 let activeLink = 0;
 
 
@@ -66,8 +66,24 @@ document.addEventListener('scroll', e => {
 headerLinks.forEach(link => {
   link.addEventListener('click', e => {
     e.target.classList.add('header__link_pre-active');
+
+    headerLinks.forEach(link => {
+      if (link !== e.target && link !== headerLinks[activeLink])
+        link.classList.add('header__link_not-active');
+    });
+
+    let checkIfScrollEnded = setInterval(() => {
+      console.log("I'm running!");
+      if ([...headerLinks].indexOf(e.target) === intervalSearch(window.scrollY, screenScrollPoints)) {
+        headerLinks.forEach(link => link.classList.remove('header__link_not-active'));
+        clearInterval(checkIfScrollEnded);
+      }
+    }, 100);
+    
     setTimeout(() => {
       e.target.classList.remove('header__link_pre-active');
+      headerLinks.forEach(link => link.classList.remove('header__link_not-active'));
+      clearInterval(checkIfScrollEnded);
     }, 1000);
   });
 })
@@ -85,7 +101,7 @@ function getAbsoluteHeight(el) {
 
 function makeScreenScrollPoints(screens) {
   const headerHeight = 90;
-  const screenScrollPoints = [(-1 * headerHeight - 61)];
+  const screenScrollPoints = [(-1 * headerHeight - 60)];
 
   for (let i = 0; i < screens.length - 1; i++) {
     if (screens[i].id === "")
