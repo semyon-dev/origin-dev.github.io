@@ -208,6 +208,7 @@ body {
   text-decoration: none;
   color: inherit;
   position: relative;
+  overflow: hidden;
 }
 
 .header__link:focus {
@@ -216,40 +217,45 @@ body {
 
 .header__link::after {
   content: "";
-  width: 40%;
-  height: 0px;
-
   position: absolute;
-  bottom: 0;
-  left: 30%;
+  height: 5px;
+  border-radius: 5px 5px 0 0;
 
+  width: 40%;
+  left: 30%;
+  bottom: -5px;
   background-color: #242424;
-  border-radius: 1.5px;
-  transition: all .1s .2s,
-              height .1s ease-out .1s,
-              background-color .1s .2s;
+  
+  transition-property: width, left, bottom, background-color;
+  transition-timing-function: ease-out, ease-out, ease-out, ease-out;
+  transition-duration: .1s, .1s, .1s, .1s;
+  transition-delay: .1s, .1s, 0s, .1s;
 }
 
 .header__link:focus::after,
 .header__link:hover::after,
 .header__link.header__link_pre-active::after {
-  height: 3px;
+  bottom: -2px;
   
-  transition-delay: .1s, 0s, .1s;
+  transition-delay: .1s, .1s, 0s, .1s;
+  transition-timing-function: ease-in, ease-in, ease-in, ease-in;
 }
 
 .header__link.header__link_not-active::after {
   width: 40% !important;
-  height: 0 !important;
+  bottom: -5px !important;
   left: 30% !important;
+  background-color: #242424 !important;
 }
 
 .header__link.header__link_active::after {
   width: 90%;
-  height: 5px;
   left: 5%;
+  bottom: 0px;
   background-color: #2998FF;
-  transition-delay: 0s, .2s, 0s;
+  transition-delay: 0s, 0s, .2s, 0s;
+  transition-timing-function: ease-in, ease-in, ease-in, ease-in;
+
 }
 
 @media screen and (max-width: 850px) {
