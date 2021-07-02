@@ -2,6 +2,8 @@
 const screens = document.querySelector('main').children;
 const headerLinks = document.querySelectorAll('.header__link');
 const scrollToTopButton = document.querySelector('.scroll-to-top');
+const headerLogoLink = document.querySelector('.header__logo-link');
+const heroButton = document.querySelector('.hero__button');
 const projectsContent = document.querySelector('.projects__content');
 const projectTemplate = projectsContent.querySelector('template').content;
 let screenScrollPoints;
@@ -64,33 +66,39 @@ document.addEventListener('scroll', e => {
 })
 
 headerLinks.forEach(link => {
-  link.addEventListener('click', e => {
-    e.target.classList.add('header__link_pre-active');
-
-    headerLinks.forEach(link => {
-      if (link !== e.target && link !== headerLinks[activeLink])
-        link.classList.add('header__link_not-active');
-    });
-
-    let checkIfScrollEnded = setInterval(() => {
-      console.log("I'm running!");
-      if ([...headerLinks].indexOf(e.target) === intervalSearch(window.scrollY, screenScrollPoints)) {
-        headerLinks.forEach(link => link.classList.remove('header__link_not-active'));
-        clearInterval(checkIfScrollEnded);
-      }
-    }, 100);
-    
-    setTimeout(() => {
-      e.target.classList.remove('header__link_pre-active');
-      headerLinks.forEach(link => link.classList.remove('header__link_not-active'));
-      clearInterval(checkIfScrollEnded);
-    }, 1000);
-  });
+  link.addEventListener('click', e => scrollTo(e.target));
 })
+
+scrollToTopButton.addEventListener('click', e => scrollTo());
+headerLogoLink.addEventListener('click', e => scrollTo());
+heroButton.addEventListener('click', e => scrollTo(headerLinks[3]));
 
 
 
 // functions
+function scrollTo(scrollLink = headerLinks[0]) {
+  scrollLink.classList.add('header__link_pre-active');
+
+  headerLinks.forEach(link => {
+    if (link !== scrollLink && link !== headerLinks[activeLink])
+      link.classList.add('header__link_not-active');
+  });
+
+  let checkIfScrollEnded = setInterval(() => {
+    console.log("I'm running!");
+    if ([...headerLinks].indexOf(scrollLink) === intervalSearch(window.scrollY, screenScrollPoints)) {
+      headerLinks.forEach(link => link.classList.remove('header__link_not-active'));
+      clearInterval(checkIfScrollEnded);
+    }
+  }, 100);
+  
+  setTimeout(() => {
+    scrollLink.classList.remove('header__link_pre-active');
+    headerLinks.forEach(link => link.classList.remove('header__link_not-active'));
+    clearInterval(checkIfScrollEnded);
+  }, 1000);
+}
+
 function getAbsoluteHeight(el) {
   let styles = window.getComputedStyle(el);
   let margin = parseFloat(styles['marginTop']) +
