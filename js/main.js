@@ -6,6 +6,8 @@ const headerLogoLink = document.querySelector('.header__logo-link');
 const heroButton = document.querySelector('.hero__button');
 const projectsContent = document.querySelector('.projects__content');
 const projectTemplate = projectsContent.querySelector('template').content;
+const achievementsSlider = document.querySelector('.achievements__slider-inner');
+const achievementTemplate = document.getElementById('achievements__template').content;
 let screenScrollPoints;
 let activeLink = 0;
 
@@ -15,15 +17,49 @@ let activeLink = 0;
 fetch("../content/content.json")
   .then(response => response.json())
   .then(json => {
+    // projects rendering
     const projects = json.projects;
     for (let i = 0; i < 4; i++) {
       const project = projectTemplate.cloneNode(true);
       project.querySelector('.project-card__image').src = projects[i].imageURL;
-      project.querySelector('.project-card__image').alt = projects[i].imageAlt;
+      project.querySelector('.project-card__image').alt = `${projects[i].title} logo`;
       project.querySelector('.project-card__title').textContent = projects[i].title;
       project.querySelector('.project-card__description').textContent = projects[i].description;
       projectsContent.append(project);
     }
+
+    // achievements rendering
+    const achievements = json.achievements;
+    for (let i = 0; i < achievements.length; i++) {
+      const achievement = achievementTemplate.cloneNode(true);
+      achievement.querySelector('.achievements__card-title').textContent = achievements[i].title;
+      achievement.querySelector('.achievements__card-description').textContent = achievements[i].description;
+      achievement.querySelector('.achievements__card-image').src = achievements[i].imageURL;
+      achievement.querySelector('.achievements__card-image').alt = `${achievements[i].title} logo`;
+      achievement.querySelector('.achievements__card-place').textContent = `${achievements[i].place} место`;
+      achievementsSlider.append(achievement);
+    }
+    
+    // slider launch
+    new Glide('.glide', {
+      type: 'carousel',
+      perView: 3,
+      perTouch: 2,
+      touchRatio: 0.6,
+      dragThreshold: 80,
+      gap: 16,
+      peek: 8,
+      animationTimingFunc: 'cubic-bezier(0.34, 1.56, 0.64, 1)' ,
+      animationDuration: 350,
+      breakpoints: {
+        1120: {
+          perView: 2
+        },
+        800: {
+          perView: 1
+        }
+      }
+    }).mount();
   });
 addActiveHeaderLink();
 

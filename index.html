@@ -25,8 +25,9 @@
   <!-- Place favicon.ico in the root directory -->
 
   <!-------------------------- Styles -------------------------->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/glide.core.min.css">
+  <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
@@ -34,7 +35,7 @@
   <!-------------------------- Content -------------------------->
   <header class="header">
     <nav class="header__content">
-      <a class="header__logo-link" href="#hero"><svg class="header__logo" viewBox="0 0 563 646">
+      <a class="header__logo-link" href="#hero"><svg class="header__logo" viewBox="0 0 563 646" width="56">
         <use xlink:href="./img/sprite.svg#logo"></use>
       </svg></a>
       <ul class="header__list">
@@ -60,7 +61,7 @@
       <div class="hero__content">
         <div class="hero__content-wrapper">
           <div class="hero__logo">
-            <svg class="hero__logo-image" viewBox="0 0 563 646">
+            <svg class="hero__logo-image" viewBox="0 0 563 646" width="50%">
               <use xlink:href="./img/sprite.svg#logo"></use>
             </svg>
             <h1 class="hero__logo-header">Origin&nbsp;Dev</h1>
@@ -137,7 +138,7 @@
       <div class="projects__content">
         <template>
           <div class="projects__card project-card">
-            <img class="project-card__image" src="" alt="">
+            <img class="project-card__image" src="" alt="" width="100%">
             <h3 class="project-card__title"></h3>
             <p class="project-card__description"></p>
             <a class="project-card__button button" href="#">Подробнее</a>
@@ -150,65 +151,26 @@
     </section>
     <section class="header-fix" id="achievements">
       <div class="achievements">
-        <div class="achievements__inner max-width-1120">
-          <h2 class="achievements__header">Наши достижения</h2>
-          <div class="achievements__slider">
-            <div class="achievements__slider-inner">
-              <div class="achievements__card">
-                <h3 class="achievements__card-title">Moscow City Hack</h3>
-                <p class="achievements__card-description">Разработка iOS / Android суперприложения для платформы i.moscow</p>
-                <div class="achievements__card-image-wrapper">
-                  <img class="achievements__card-image" src="./img/achievements__mch.svg" alt="Moscow City Hack logo" height="" width="">
-                </div>
-                <strong class="achievements__card-place">1 МЕСТО</strong>
+        <div class="achievements__inner">
+          <h2 class="achievements__header max-width-1120">Наши достижения</h2>
+          <div class="achievements__slider-wrapper max-width-1120">
+            <div class="achievements__slider glide">
+              <div class="glide__track" data-glide-el="track">
+                <ul class="achievements__slider-inner glide__slides">
+
+                </ul>
               </div>
-              <div class="achievements__card">
-                <h3 class="achievements__card-title">Moscow City Hack</h3>
-                <p class="achievements__card-description">Разработка iOS / Android суперприложения для платформы i.moscow</p>
-                <div class="achievements__card-image-wrapper">
-                  <img class="achievements__card-image" src="./img/achievements__mch.svg" alt="Moscow City Hack logo" height="" width="">
-                </div>
-                <strong class="achievements__card-place">1 МЕСТО</strong>
-              </div>
-              <div class="achievements__card">
-                <h3 class="achievements__card-title">Moscow City Hack</h3>
-                <p class="achievements__card-description">Разработка iOS / Android суперприложения для платформы i.moscow</p>
-                <div class="achievements__card-image-wrapper">
-                  <img class="achievements__card-image" src="./img/achievements__mch.svg" alt="Moscow City Hack logo" height="" width="">
-                </div>
-                <strong class="achievements__card-place">1 МЕСТО</strong>
-              </div>
-              <div class="achievements__card">
-                <h3 class="achievements__card-title">Moscow City Hack</h3>
-                <p class="achievements__card-description">Разработка iOS / Android суперприложения для платформы i.moscow</p>
-                <div class="achievements__card-image-wrapper">
-                  <img class="achievements__card-image" src="./img/achievements__mch.svg" alt="Moscow City Hack logo" height="" width="">
-                </div>
-                <strong class="achievements__card-place">1 МЕСТО</strong>
-              </div>
-              <div class="achievements__card">
-                <h3 class="achievements__card-title">Moscow City Hack</h3>
-                <p class="achievements__card-description">Разработка iOS / Android суперприложения для платформы i.moscow</p>
-                <div class="achievements__card-image-wrapper">
-                  <img class="achievements__card-image" src="./img/achievements__mch.svg" alt="Moscow City Hack logo" height="" width="">
-                </div>
-                <strong class="achievements__card-place">1 МЕСТО</strong>
-              </div>
-              <div class="achievements__card">
-                <h3 class="achievements__card-title">Moscow City Hack</h3>
-                <p class="achievements__card-description">Разработка iOS / Android суперприложения для платформы i.moscow</p>
-                <div class="achievements__card-image-wrapper">
-                  <img class="achievements__card-image" src="./img/achievements__mch.svg" alt="Moscow City Hack logo" height="" width="">
-                </div>
-                <strong class="achievements__card-place">1 МЕСТО</strong>
-              </div>
-              <div class="achievements__card">
-                <h3 class="achievements__card-title">Moscow City Hack</h3>
-                <p class="achievements__card-description">Разработка iOS / Android суперприложения для платформы i.moscow</p>
-                <div class="achievements__card-image-wrapper">
-                  <img class="achievements__card-image" src="./img/achievements__mch.svg" alt="Moscow City Hack logo" height="" width="">
-                </div>
-                <strong class="achievements__card-place">1 МЕСТО</strong>
+              <div class="achievements__slider-controls" data-glide-el="controls">
+                <button class="achievements__slider-control achievements__slider-control_left" data-glide-dir="<">
+                  <svg viewBox="0 0 23 15" width="75%">
+                    <use xlink:href="./img/sprite.svg#scroll-to-top"></use>
+                  </svg>
+                </button>
+                <button class="achievements__slider-control achievements__slider-control_right" data-glide-dir=">">
+                  <svg viewBox="0 0 23 15" width="75%">
+                    <use xlink:href="./img/sprite.svg#scroll-to-top"></use>
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
@@ -226,10 +188,23 @@
     </svg>
   </a>
 
-  <!-------------------------- Scripts -------------------------->
-  <script src="js/main.js"></script>
+  <template id="achievements__template">
+    <li class="glide__slide">
+      <div class="achievements__card">
+        <h3 class="achievements__card-title"></h3>
+        <p class="achievements__card-description"></p>
+        <div class="achievements__card-image-wrapper">
+          <img class="achievements__card-image" src="" alt="" height="auto" width="75%">
+        </div>
+        <strong class="achievements__card-place"></strong>
+      </div>
+    </li>
+  </template>
 
-  
+  <!-------------------------- Scripts -------------------------->
+  <script src="./js/glide.min.js"></script>
+  <script src="./js/main.js"></script>
+ 
   <!--todo------------------------ Google Analytics -------------------------->
   <!--! Change UA-XXXXX-Y to be your site's ID. -->
   <!-- <script>

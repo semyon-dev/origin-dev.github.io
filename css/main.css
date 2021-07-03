@@ -98,7 +98,7 @@ body {
 .max-width-1120 {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 0 8px;
+  padding: 0 32px;
   box-sizing: border-box;
 }
 
@@ -158,7 +158,7 @@ body {
   width: 56px;
   position: absolute;
   top: 50%;
-  left: 8px;
+  left: 32px;
   transform: translateY(-50%);
   text-decoration: none;
 }
@@ -498,8 +498,10 @@ body {
   font-size: 2.4rem;
   color: #BEBEBE;
   transition: color .25s .1s;
+  outline: none;
 }
 
+.projects__more-link:focus,
 .projects__more-link:hover {
   color: #242424;
   transition-delay: 0s;
@@ -511,12 +513,12 @@ body {
 -------------------- */
 .achievements {
   width: 100%;
-  padding: 2.5rem 0 3.6rem;
+  padding: 2.5rem 0 1.6rem;
   background-color: #2998FF;
 }
 
 .achievements__header {
-  margin: 0 0 1.3em;
+  margin: 0 auto 0.9em;
   font-size: 4.8rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -525,41 +527,113 @@ body {
   color: #fff;
 }
 
-.achievements__slider {
-  height: 24rem;
-  position: relative;
-  overflow-y: hidden;
-}
-
 .achievements__slider-inner {
-  display: flex;
-  overflow-x: scroll;
-  position: absolute;
-  top: 0;
-  bottom: -18px;
-  left: 0;
-  right: 0;
+  padding: 20px 0;
+  margin: 0;
 }
 
 .achievements__card {
-  flex: 1 0 32%;
-  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  grid-template-rows: min-content 1fr;
+  grid-template-areas: "title image"
+                       "desc  image"
+                       "place place";
 
-  margin: 0;
   padding: 1.6rem 1.6rem 1.6rem 2.4rem;
   background-color: #fff;
   border-radius: 32px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-}
-
-.achievements__card + .achievements__card {
-  margin-left: 2%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .1);
+  overflow: hidden;
 }
 
 .achievements__card-title {
-  margin: 0;
+  grid-area: title;
+  display: flex;
+  align-items: center;
+  min-height: 2em;
+  margin: 0 0 0.3em 0;
   font-size: 2.4rem;
   line-height: 1;
+}
+
+.achievements__card-description {
+  grid-area: desc;
+  font-size: 1.2rem;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.achievements__card-image-wrapper {
+  grid-area: image;
+  width: 128px;
+  height: 128px;
+  border-radius: 16px;
+  border: 1px solid #BEBEBE;
+  margin: 0 0 2rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.achievements__card-place {
+  grid-area: place;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 4.8rem;
+  text-align: center;
+}
+
+.achievements__slider-control {
+  position: absolute;
+  max-width: 32px;
+  height: 30%;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.achievements__slider-control svg {
+  fill: #fff;
+  transition: fill .25s .1s;
+} 
+
+.achievements__slider-control:hover svg {
+  fill: #ccc;
+  transition-delay: 0s;
+}
+
+.achievements__slider-control_left {
+  top: 50%;
+  left: 0%;
+  transform: translate(-100%, -50%);
+}
+
+.achievements__slider-control_left svg {
+  transform: rotate(-90deg);
+}
+
+.achievements__slider-control_right {
+  top: 50%;
+  right: 0%;
+  transform: translate(100%, -50%);
+}
+
+.achievements__slider-control_right svg {
+  transform: rotate(90deg);
+}
+
+@media screen and (min-width: 1160px) {
+  .achievements__slider-control_left {
+    left: -12px;
+  }
+
+  .achievements__slider-control_right {
+    right: -12px;
+  }
 }
 
 
@@ -606,16 +680,16 @@ body {
               background-color .25s .1s;
 }
 
+.scroll-to-top svg {
+  fill: #fff;
+}
+
 .scroll-to-top:focus,
 .scroll-to-top:hover {
   outline: none;
   background-color: #00509A;
   transition-delay: 0s;
 }
-/*
-.scroll-to-top:active {
-  background-color: #2998FF;
-} */
 
 .scroll-to-top_active {
   right: 5%;

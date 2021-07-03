@@ -3,26 +3,42 @@
     {
       "title": "Суперприложение i.moscow",
       "description": "Проект, объединяющий сервисы Московского Инновационного Кластера в единое целое, предоставляя удобный пользовательский интерфейс",
-      "imageURL": "./img/projects__i.moscow.jpg",
-      "imageAlt": "i.moscow logo"
+      "imageURL": "./img/projects__i.moscow.jpg"
     },
     {
       "title": "Микросервисы в мобильных прилолениях",
       "description": "Проект, объединяющий сервисы Московского Инновационного Кластера в единое целое, предоставляя удобный пользовательский интерфейс",
-      "imageURL": "./img/projects__devhack.jpg",
-      "imageAlt": "devhack logo"
+      "imageURL": "./img/projects__devhack.jpg"
     },
     {
       "title": "Криптовалютный кошелек BGL",
       "description": "Проект, объединяющий сервисы Московского Инновационного Кластера в единое целое, предоставляя удобный пользовательский интерфейс",
-      "imageURL": "./img/projects__bitgesell.jpg",
-      "imageAlt": "bitgesell logo"
+      "imageURL": "./img/projects__bitgesell.jpg"
     },
     {
       "title": "9-18.ru",
       "description": "Проект, объединяющий сервисы Московского Инновационного Кластера в единое целое, предоставляя удобный пользовательский интерфейс",
-      "imageURL": "./img/projects__9-18.jpg",
-      "imageAlt": "9-18 logo"
+      "imageURL": "./img/projects__9-18.jpg"
+    }
+  ],
+  "achievements": [
+    {
+      "title": "Moscow City Hack",
+      "description": "Разработка iOS / Android суперприложения для платформы i.moscow",
+      "imageURL": "./img/achievements__mch.svg",
+      "place" : "1"
+    },
+    {
+      "title": "DevHack",
+      "description": "Разработка микросервисов в мобильных приложениях",
+      "imageURL": "./img/achievements__devhack.svg",
+      "place" : "1"
+    },
+    {
+      "title": "Cryptowallet Kickstart",
+      "description": "Разработка мобильного кошелька для криптовалюты Bitgesell",
+      "imageURL": "./img/achievements__cryptowallet-kickstart.svg",
+      "place" : "1"
     }
   ]
 }
