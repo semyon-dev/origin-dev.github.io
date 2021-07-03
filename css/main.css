@@ -319,9 +319,11 @@ body {
 }
 
 .hero__logo-header {
+  align-self: stretch;
   font-size: 4.6rem;
   line-height: 1;
   text-transform: uppercase;
+  text-align: center;
   margin: .4em 0 0 0;
 }
 
@@ -514,7 +516,7 @@ body {
 }
 
 .achievements__header {
-  margin: 0;
+  margin: 0 0 1.3em;
   font-size: 4.8rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -524,17 +526,42 @@ body {
 }
 
 .achievements__slider {
-  height: 300px;
+  height: 24rem;
+  position: relative;
+  overflow-y: hidden;
 }
 
-.test {
+.achievements__slider-inner {
+  display: flex;
+  overflow-x: scroll;
   position: absolute;
   top: 0;
+  bottom: -18px;
   left: 0;
   right: 0;
-  height: 1px;
-  background-color: palevioletred;
 }
+
+.achievements__card {
+  flex: 1 0 32%;
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 1.6rem 1.6rem 1.6rem 2.4rem;
+  background-color: #fff;
+  border-radius: 32px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.achievements__card + .achievements__card {
+  margin-left: 2%;
+}
+
+.achievements__card-title {
+  margin: 0;
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
 
 /* --------------------
         others
