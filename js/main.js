@@ -45,18 +45,24 @@ fetch("../content/content.json")
       type: 'carousel',
       perView: 3,
       perTouch: 2,
-      touchRatio: 0.6,
+      touchRatio: 0.75,
       dragThreshold: 80,
       gap: 16,
       peek: 8,
-      animationTimingFunc: 'cubic-bezier(0.34, 1.56, 0.64, 1)' ,
+      animationTimingFunc: 'cubic-bezier(0.34, 1.4, 0.64, 1)',
       animationDuration: 350,
       breakpoints: {
         1120: {
-          perView: 2
+          perView: 2,
+          perTouch: 1,
+          touchRatio: 0.6,
+          animationTimingFunc: 'cubic-bezier(0.34, 1.3, 0.64, 1)',
         },
         800: {
-          perView: 1
+          perView: 1,
+          perTouch: 1,
+          touchRatio: 0.5,
+          animationTimingFunc: 'cubic-bezier(0.34, 1.25, 0.64, 1)',
         }
       }
     }).mount();
