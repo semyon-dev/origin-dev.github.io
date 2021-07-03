@@ -218,15 +218,15 @@ body {
 .header__link::after {
   content: "";
   position: absolute;
-  height: 5px;
+  bottom: 0px;
   border-radius: 5px 5px 0 0;
-
+  
   width: 40%;
   left: 30%;
-  bottom: -5px;
+  height: 0px;
   background-color: #242424;
   
-  transition-property: width, left, bottom, background-color;
+  transition-property: width, left, height, background-color;
   transition-timing-function: ease-out, ease-out, ease-out, ease-out;
   transition-duration: .1s, .1s, .1s, .1s;
   transition-delay: .1s, .1s, 0s, .1s;
@@ -235,9 +235,9 @@ body {
 .header__link:focus::after,
 .header__link:hover::after,
 .header__link.header__link_pre-active::after {
-  bottom: -2px;
+  height: 3px;
   
-  transition-delay: .1s, .1s, 0s, .1s;
+  transition-delay: .2s, .2s, 0s, .2s;
   transition-timing-function: ease-in, ease-in, ease-in, ease-in;
 }
 
@@ -251,7 +251,7 @@ body {
 .header__link.header__link_active::after {
   width: 90%;
   left: 5%;
-  bottom: 0px;
+  height: 5px;
   background-color: #2998FF;
   transition-delay: 0s, 0s, .2s, 0s;
   transition-timing-function: ease-in, ease-in, ease-in, ease-in;
