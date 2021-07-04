@@ -55,12 +55,14 @@ fetch("../content/content.json")
       animationDuration: 350,
       breakpoints: {
         1120: {
+          focusAt: 0,
           perView: 2,
           perTouch: 1,
           touchRatio: 0.6,
           animationTimingFunc: 'cubic-bezier(0.34, 1.3, 0.64, 1)',
         },
         800: {
+          focusAt: 'center',
           perView: 1,
           perTouch: 1,
           touchRatio: 0.5,
