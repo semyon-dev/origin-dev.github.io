@@ -43,6 +43,8 @@ fetch("../content/content.json")
     // slider launch
     new Glide('.glide', {
       type: 'carousel',
+      focusAt: 'center',
+      startAt: 1,
       perView: 3,
       perTouch: 2,
       touchRatio: 0.75,
