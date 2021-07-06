@@ -177,6 +177,10 @@ formItemAfters.forEach(el => {
 form.addEventListener('submit', e => {
   e.preventDefault();
 
+  const _subject = formName.value ? 
+  `Origin Dev: Пользователь ${formName.value} оставил сообщение!` : 
+  'Origin Dev: Безымянный пользователь оставил сообщение!';
+  
   fetch("https://formsubmit.co/ajax/ilya.iskra1337@gmail.com", {
     method: "POST",
     headers: { 
@@ -189,7 +193,7 @@ form.addEventListener('submit', e => {
       tel: formTel.value || undefined,
       message: formMessage.value || undefined,
       _template: 'table',
-      _subject: 'Origin Dev: Новый пользователь оставил сообщение!'
+      _subject
     })
   })
     .then(response => response.json())
@@ -204,10 +208,14 @@ form.addEventListener('submit', e => {
 // functions
 function formClear() {
   formName.value = formEmail.value = formTel.value = formMessage.value = "";
+
   formName.classList.remove('contacts__form-item_css-validate');
   formEmail.classList.remove('contacts__form-item_css-validate');
   formTel.classList.remove('contacts__form-item_css-validate');
   formMessage.classList.remove('contacts__form-item_css-validate');
+
+  formEmail.required = true;
+  formTel.required = true;
 }
 
 function scrollTo(scrollLink = headerLinks[0]) {
