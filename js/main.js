@@ -4,10 +4,19 @@ const headerLinks = document.querySelectorAll('.header__link');
 const scrollToTopButton = document.querySelector('.scroll-to-top');
 const headerLogoLink = document.querySelector('.header__logo-link');
 const heroButton = document.querySelector('.hero__button');
+
 const projectsContent = document.querySelector('.projects__content');
 const projectTemplate = projectsContent.querySelector('template').content;
+
 const achievementsSlider = document.querySelector('.achievements__slider-inner');
 const achievementTemplate = document.getElementById('achievements__template').content;
+
+const form = document.querySelector('.form');
+const formName = form.querySelector('[name="name"]');
+const formEmail = form.querySelector('[name="email"]');
+const formTel = form.querySelector('[name="tel"]');
+const formMessage = form.querySelector('[name="message"]');
+
 let screenScrollPoints;
 let activeLink = 0;
 
@@ -49,6 +58,7 @@ fetch("../content/content.json")
       perTouch: 2,
       touchRatio: 0.75,
       dragThreshold: 80,
+      keyboard: false,
       gap: 16,
       peek: 8,
       animationTimingFunc: 'cubic-bezier(0.34, 1.4, 0.64, 1)',
@@ -119,6 +129,51 @@ scrollToTopButton.addEventListener('click', e => scrollTo());
 headerLogoLink.addEventListener('click', e => scrollTo());
 heroButton.addEventListener('click', e => scrollTo(headerLinks[3]));
 
+formEmail.addEventListener('input', e => {
+  if (formEmail.value !== '') {
+    formTel.required = false;
+    formEmail.classList.add('contacts__form-item_css-validate');
+  } else {
+    formTel.required = true;
+    formEmail.classList.remove('contacts__form-item_css-validate');
+  }
+});
+
+formTel.addEventListener('input', e => {
+  if (formTel.value !== '') {
+    formEmail.required = false;
+    formTel.classList.add('contacts__form-item_css-validate');
+  } else {
+    formEmail.required = true;
+    formTel.classList.remove('contacts__form-item_css-validate');
+  }
+});
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  fetch("https://formsubmit.co/ajax/ilya.iskra1337@gmail.com", {
+    method: "POST",
+    headers: { 
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      name: formName.value || undefined,
+      email: formEmail.value || undefined,
+      tel: formTel.value || undefined,
+      message: formMessage.value || undefined,
+      _template: 'table',
+      _subject: 'Origin Dev: Новый пользователь оставил сообщение!'
+    })
+  })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error));
+
+    formName.value = formEmail.value = formTel.value = formMessage.value = "";
+});
+
 
 
 // functions
@@ -131,7 +186,6 @@ function scrollTo(scrollLink = headerLinks[0]) {
   });
 
   let checkIfScrollEnded = setInterval(() => {
-    console.log("I'm running!");
     if ([...headerLinks].indexOf(scrollLink) === intervalSearch(window.scrollY, screenScrollPoints)) {
       headerLinks.forEach(link => link.classList.remove('header__link_not-active'));
       clearInterval(checkIfScrollEnded);

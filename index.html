@@ -177,8 +177,22 @@
         </div>
       </div>
     </section>
-    <section class="contacts" id="contacts">
+    <section class="contacts header-fix" id="contacts">
+      <h2 class="contacts__title">Связаться</h2>
+      <form class="contacts__form form" action="http://127.0.0.1:5500/#contacts" method="POST">
+        <input class="contacts__form-item form__name" type="text" name="name" placeholder="Ваше имя">
+        <input class="contacts__form-item form__email" type="email" name="email" placeholder="Ваш email" required>
+        <input class="contacts__form-item form__tel" type="tel" name="tel" placeholder="Ваш телефон" required pattern="^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$">
+        <textarea class="contacts__form-item form__message" name="message" placeholder="Чем мы можем вам помочь?" required></textarea>
 
+        <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_replyto">
+        <input type="hidden" name="_subject" value="Origin Dev: Новый пользователь оставил сообщение!">
+        <input type="hidden" name="_captcha" value="false">
+
+        <button class="contacts__form-item form__submit button" type="submit">Связаться</button>
+      </form>
     </section>
   </main>
 
