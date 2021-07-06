@@ -181,14 +181,35 @@
       <h2 class="contacts__title">Связаться</h2>
       <form class="contacts__form form" action="https://formsubmit.co/ilya.iskra1337@gmail.com" method="POST">
         <input class="contacts__form-item form__name" type="text" name="name" placeholder="Ваше имя">
+        <svg class="contacts__form-item-after form__name-after" hegith="10">
+          <use xlink:href="./img/sprite.svg#contacts__asterisk"></use>
+          <use xlink:href="./img/sprite.svg#contacts__check"></use>
+          <use xlink:href="./img/sprite.svg#contacts__cross"></use>
+        </svg>
         <input class="contacts__form-item form__email" type="email" name="email" placeholder="Ваш email" required>
+        <svg class="contacts__form-item-after form__email-after" hegith="10">
+          <use xlink:href="./img/sprite.svg#contacts__asterisk"></use>
+          <use xlink:href="./img/sprite.svg#contacts__check"></use>
+          <use xlink:href="./img/sprite.svg#contacts__cross"></use>
+        </svg>
         <input class="contacts__form-item form__tel" type="tel" name="tel" placeholder="Ваш телефон" required pattern="^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$">
+        <svg class="contacts__form-item-after form__tel-after" hegith="10">
+          <use xlink:href="./img/sprite.svg#contacts__asterisk"></use>
+          <use xlink:href="./img/sprite.svg#contacts__check"></use>
+          <use xlink:href="./img/sprite.svg#contacts__cross"></use>
+        </svg>
         <textarea class="contacts__form-item form__message" name="message" placeholder="Чем мы можем вам помочь?" required></textarea>
+        <svg class="contacts__form-item-after form__message-after" hegith="10">
+          <use xlink:href="./img/sprite.svg#contacts__asterisk"></use>
+          <use xlink:href="./img/sprite.svg#contacts__check"></use>
+          <use xlink:href="./img/sprite.svg#contacts__cross"></use>
+        </svg>
 
         <input type="text" name="_honey" style="display:none">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_replyto">
         <input type="hidden" name="_subject" value="Origin Dev: Новый пользователь оставил сообщение!">
+        <input type="hidden" name="_next" value="https://origin-dev.tech/#contacts">
         <input type="hidden" name="_captcha" value="false">
 
         <button class="contacts__form-item form__submit button" type="submit">Связаться</button>

@@ -16,6 +16,7 @@ const formName = form.querySelector('[name="name"]');
 const formEmail = form.querySelector('[name="email"]');
 const formTel = form.querySelector('[name="tel"]');
 const formMessage = form.querySelector('[name="message"]');
+const formItemAfters = form.querySelectorAll('.contacts__form-item-after');
 
 let screenScrollPoints;
 let activeLink = 0;
@@ -129,6 +130,14 @@ scrollToTopButton.addEventListener('click', e => scrollTo());
 headerLogoLink.addEventListener('click', e => scrollTo());
 heroButton.addEventListener('click', e => scrollTo(headerLinks[3]));
 
+formName.addEventListener('input', e => {
+  if (formName.value !== '') {
+    formName.classList.add('contacts__form-item_css-validate');
+  } else {
+    formName.classList.remove('contacts__form-item_css-validate');
+  }
+})
+
 formEmail.addEventListener('input', e => {
   if (formEmail.value !== '') {
     formTel.required = false;
@@ -147,6 +156,22 @@ formTel.addEventListener('input', e => {
     formEmail.required = true;
     formTel.classList.remove('contacts__form-item_css-validate');
   }
+});
+
+formMessage.addEventListener('input', e => {
+  if (formMessage.value !== '') 
+    formMessage.classList.add('contacts__form-item_css-validate');
+  else
+    formMessage.classList.remove('contacts__form-item_css-validate');
+});
+
+formItemAfters.forEach(el => {
+  el.addEventListener('click', e => {
+    if (e.target.parentNode === form)
+      e.target.previousSibling.previousSibling.focus()
+    else
+      e.target.parentNode.previousSibling.previousSibling.focus()
+  });
 });
 
 form.addEventListener('submit', e => {
@@ -171,12 +196,20 @@ form.addEventListener('submit', e => {
     .then(data => console.log(data))
     .catch(error => console.log(error));
 
-    formName.value = formEmail.value = formTel.value = formMessage.value = "";
+    formClear();
 });
 
 
 
 // functions
+function formClear() {
+  formName.value = formEmail.value = formTel.value = formMessage.value = "";
+  formName.classList.remove('contacts__form-item_css-validate');
+  formEmail.classList.remove('contacts__form-item_css-validate');
+  formTel.classList.remove('contacts__form-item_css-validate');
+  formMessage.classList.remove('contacts__form-item_css-validate');
+}
+
 function scrollTo(scrollLink = headerLinks[0]) {
   scrollLink.classList.add('header__link_pre-active');
 
