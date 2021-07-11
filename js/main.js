@@ -17,6 +17,11 @@ const formEmail = form.querySelector('[name="email"]');
 const formTel = form.querySelector('[name="tel"]');
 const formMessage = form.querySelector('[name="message"]');
 const formItemAfters = form.querySelectorAll('.contacts__form-item-after');
+const formSubmit = form.querySelector('.form__submit');
+const formSubmitText = formSubmit.querySelector('.form__submit-text');
+const formSubmitLogo = formSubmit.querySelector('.form__submit-logo');
+const formSubmitSentText = formSubmit.querySelector('.form__submit-sent-text');
+const formSubmitFailText = formSubmit.querySelector('.form__submit-fail-text');
 
 let screenScrollPoints;
 let activeLink = 0;
@@ -174,8 +179,63 @@ formItemAfters.forEach(el => {
   });
 });
 
+// let formFlag = 0;
+// formSubmit.addEventListener('click', e => {
+//   switch (formFlag) {
+//     case 0: {
+//       formFlag++;
+//       formSubmit.classList.add('form__submit_sending');
+//       fadeOut(formSubmitText, 500);
+//       setTimeout(() => fadeIn(formSubmitLogo, 500), 500);
+//       break;
+//     }
+//     case 1: {
+//       formFlag++;
+//       formSubmit.classList.remove('form__submit_sending');
+//       formSubmit.classList.add('form__submit_sent');
+//       fadeOut(formSubmitLogo, 500);
+//       setTimeout(() => fadeIn(formSubmitSentText, 500), 500);
+
+//       setTimeout(() => {
+//         formSubmit.style.transitionDuration = '0.5s, 0.5s, 0.5s';
+//         formSubmit.classList.remove('form__submit_sent');
+//         setTimeout(() => formSubmit.style.transitionDuration = '', 500);
+//         fadeOut(formSubmitSentText, 500);
+//         setTimeout(() => fadeIn(formSubmitText, 500), 500);
+//       }, 2500);
+//       break;
+//     }
+//     case 2: {
+//       formFlag++;
+//       formSubmit.classList.add('form__submit_sending');
+//       fadeOut(formSubmitText, 500);
+//       setTimeout(() => fadeIn(formSubmitLogo, 500), 500);
+//       break;
+//     }
+//     case 3: {
+//       formFlag = 0;
+//       formSubmit.classList.remove('form__submit_sending');
+//       formSubmit.classList.add('form__submit_fail');
+//       fadeOut(formSubmitLogo, 500);
+//       setTimeout(() => fadeIn(formSubmitFailText, 500), 500);
+
+//       setTimeout(() => {
+//         formSubmit.style.transitionDuration = '0.5s, 0.5s, 0.5s';
+//         formSubmit.classList.remove('form__submit_fail');
+//         setTimeout(() => formSubmit.style.transitionDuration = '', 500);
+//         fadeOut(formSubmitFailText, 500);
+//         setTimeout(() => fadeIn(formSubmitText, 500), 500);
+//       }, 2500);
+//       break;
+//     }
+//   }
+// });
+
 form.addEventListener('submit', e => {
   e.preventDefault();
+
+  formSubmit.blur();
+  formButtonWait();
 
   const _subject = formName.value ? 
   `Origin Dev: Пользователь ${formName.value} оставил сообщение!` : 
@@ -197,7 +257,10 @@ form.addEventListener('submit', e => {
     })
   })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+      formButtonSent();
+      console.log(data);
+    })
     .catch(error => console.log(error));
 
     formClear();
@@ -206,6 +269,45 @@ form.addEventListener('submit', e => {
 
 
 // functions
+function fadeIn(element, duration = 1000, delay = 0) {
+  element.classList.remove('form__submit_hidden');
+  element.style.transition = `opacity ${duration/1000}s ${delay/1000}s`;
+  element.style.opacity = '1';
+  setTimeout(() => {
+    element.style.transition = '';
+  }, (duration + delay));
+}
+
+function fadeOut(element, duration = 1000, delay = 0) {
+  element.style.transition = `opacity ${duration/1000}s ${delay/1000}s`;
+  element.style.opacity = '0';
+  setTimeout(() => {
+    element.classList.add('form__submit_hidden');
+    element.style.transition = '';
+  }, (duration + delay));
+}
+
+function formButtonWait() {
+  formSubmit.classList.add('form__submit_sending');
+  fadeOut(formSubmitText, 500);
+  setTimeout(() => fadeIn(formSubmitLogo, 500), 500);
+}
+
+function formButtonSent() {
+  formSubmit.classList.remove('form__submit_sending');
+  formSubmit.classList.add('form__submit_sent');
+  fadeOut(formSubmitLogo, 250);
+  setTimeout(() => fadeIn(formSubmitSentText, 500), 500);
+
+  setTimeout(() => {
+    formSubmit.style.transitionDuration = '0.5s, 0.5s, 0.5s';
+    formSubmit.classList.remove('form__submit_sent');
+    setTimeout(() => formSubmit.style.transitionDuration = '', 500);
+    fadeOut(formSubmitSentText, 500);
+    setTimeout(() => fadeIn(formSubmitText, 500), 500);
+  }, 2500);
+}
+
 function formClear() {
   formName.value = formEmail.value = formTel.value = formMessage.value = "";
 

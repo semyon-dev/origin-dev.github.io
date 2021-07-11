@@ -179,6 +179,12 @@
     </section>
     <section class="contacts header-fix" id="contacts">
       <h2 class="contacts__title">Связаться</h2>
+      <div class="contacts__links">
+        <a class="contacts__link" href="mailto:contact@origin-dev.tech">contact@origin-dev.tech</a>
+        <a class="contacts__link" href="https://t.me/semyon_dev">@semyon_dev</a>
+        <a class="contacts__link" href="https://wa.me/123456890?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82!%20%D0%AD%D1%82%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B0%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8%20IT%E2%80%91%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2%20%D0%B4%D0%BB%D1%8F%20%D0%92%D0%B0%D1%88%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0%20Origin%20Dev!%20%D0%9E%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%20%D0%BD%D0%B0%D0%BC%20%D1%81%D0%B2%D0%BE%D1%91%20%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%20%D0%BC%D1%8B%20%D0%BE%D0%B1%D1%8F%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%20%D0%BD%D0%B0%20%D0%BD%D0%B5%D0%B3%D0%BE%20%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%B8%D0%BC!">+ 7 (123) 456 78 90</a>
+        <a class="contacts__link" href="https://www.instagram.com/origin_dev/">@origin_dev</a>
+      </div>
       <form class="contacts__form form" action="https://formsubmit.co/ilya.iskra1337@gmail.com" method="POST">
         <input class="contacts__form-item form__name" type="text" name="name" placeholder="Ваше имя">
         <svg class="contacts__form-item-after form__name-after" hegith="10">
@@ -212,7 +218,14 @@
         <input type="hidden" name="_next" value="https://origin-dev.tech/#contacts">
         <input type="hidden" name="_captcha" value="false">
 
-        <button class="contacts__form-item form__submit button" type="submit">Связаться</button>
+        <button class="contacts__form-item form__submit" type="submit">
+          <span class="form__submit-text">Связаться</span>
+          <svg class="form__submit-logo form__submit_hidden" viewBox="0 0 563 646" height="48" fill="#ffffff">
+            <use xlink:href="./img/sprite.svg#logo"></use>
+          </svg>
+          <span class="form__submit-sent-text form__submit_hidden">Спасибо!</span>
+          <span class="form__submit-fail-text form__submit_hidden">Ошибка!</span>
+        </button>
       </form>
     </section>
   </main>
