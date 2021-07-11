@@ -88,6 +88,7 @@ fetch("../content/content.json")
     }).mount();
   });
 addActiveHeaderLink();
+formSubmitLogo.style.animation = 'none';
 
 
 
@@ -179,58 +180,6 @@ formItemAfters.forEach(el => {
   });
 });
 
-// let formFlag = 0;
-// formSubmit.addEventListener('click', e => {
-//   switch (formFlag) {
-//     case 0: {
-//       formFlag++;
-//       formSubmit.classList.add('form__submit_sending');
-//       fadeOut(formSubmitText, 500);
-//       setTimeout(() => fadeIn(formSubmitLogo, 500), 500);
-//       break;
-//     }
-//     case 1: {
-//       formFlag++;
-//       formSubmit.classList.remove('form__submit_sending');
-//       formSubmit.classList.add('form__submit_sent');
-//       fadeOut(formSubmitLogo, 500);
-//       setTimeout(() => fadeIn(formSubmitSentText, 500), 500);
-
-//       setTimeout(() => {
-//         formSubmit.style.transitionDuration = '0.5s, 0.5s, 0.5s';
-//         formSubmit.classList.remove('form__submit_sent');
-//         setTimeout(() => formSubmit.style.transitionDuration = '', 500);
-//         fadeOut(formSubmitSentText, 500);
-//         setTimeout(() => fadeIn(formSubmitText, 500), 500);
-//       }, 2500);
-//       break;
-//     }
-//     case 2: {
-//       formFlag++;
-//       formSubmit.classList.add('form__submit_sending');
-//       fadeOut(formSubmitText, 500);
-//       setTimeout(() => fadeIn(formSubmitLogo, 500), 500);
-//       break;
-//     }
-//     case 3: {
-//       formFlag = 0;
-//       formSubmit.classList.remove('form__submit_sending');
-//       formSubmit.classList.add('form__submit_fail');
-//       fadeOut(formSubmitLogo, 500);
-//       setTimeout(() => fadeIn(formSubmitFailText, 500), 500);
-
-//       setTimeout(() => {
-//         formSubmit.style.transitionDuration = '0.5s, 0.5s, 0.5s';
-//         formSubmit.classList.remove('form__submit_fail');
-//         setTimeout(() => formSubmit.style.transitionDuration = '', 500);
-//         fadeOut(formSubmitFailText, 500);
-//         setTimeout(() => fadeIn(formSubmitText, 500), 500);
-//       }, 2500);
-//       break;
-//     }
-//   }
-// });
-
 form.addEventListener('submit', e => {
   e.preventDefault();
 
@@ -259,9 +208,12 @@ form.addEventListener('submit', e => {
     .then(response => response.json())
     .then(data => {
       formButtonSent();
-      console.log(data);
+      // console.log(data);
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      formButtonFail();
+      // console.log(error);
+    });
 
     formClear();
 });
@@ -288,6 +240,7 @@ function fadeOut(element, duration = 1000, delay = 0) {
 }
 
 function formButtonWait() {
+  formSubmitLogo.style.animation = '';
   formSubmit.classList.add('form__submit_sending');
   fadeOut(formSubmitText, 500);
   setTimeout(() => fadeIn(formSubmitLogo, 500), 500);
@@ -297,13 +250,34 @@ function formButtonSent() {
   formSubmit.classList.remove('form__submit_sending');
   formSubmit.classList.add('form__submit_sent');
   fadeOut(formSubmitLogo, 250);
-  setTimeout(() => fadeIn(formSubmitSentText, 500), 500);
+  setTimeout(() => {
+    formSubmitLogo.style.animation = 'none';
+    fadeIn(formSubmitSentText, 500)
+  }, 500);
 
   setTimeout(() => {
-    formSubmit.style.transitionDuration = '0.5s, 0.5s, 0.5s';
+    formSubmit.style.transitionDuration = '0.5s, 0.5s, 1s';
     formSubmit.classList.remove('form__submit_sent');
-    setTimeout(() => formSubmit.style.transitionDuration = '', 500);
+    setTimeout(() => formSubmit.style.transitionDuration = '', 1000);
     fadeOut(formSubmitSentText, 500);
+    setTimeout(() => fadeIn(formSubmitText, 500), 500);
+  }, 2500);
+}
+
+function formButtonFail() {
+  formSubmit.classList.remove('form__submit_sending');
+  formSubmit.classList.add('form__submit_fail');
+  fadeOut(formSubmitLogo, 250);
+  setTimeout(() => {
+    formSubmitLogo.style.animation = 'none';
+    fadeIn(formSubmitFailText, 500)
+  }, 500);
+
+  setTimeout(() => {
+    formSubmit.style.transitionDuration = '0.5s, 0.5s, 1s';
+    formSubmit.classList.remove('form__submit_fail');
+    setTimeout(() => formSubmit.style.transitionDuration = '', 1000);
+    fadeOut(formSubmitFailText, 500);
     setTimeout(() => fadeIn(formSubmitText, 500), 500);
   }, 2500);
 }
