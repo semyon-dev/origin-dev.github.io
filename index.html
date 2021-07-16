@@ -53,6 +53,11 @@
         </li>
       </ul>
     </nav>
+    <button class="header__ham">
+      <span class="header__ham-line"></span>
+      <span class="header__ham-line"></span>
+      <span class="header__ham-line"></span>
+    </button>
   </header>
 
   <main>
@@ -136,14 +141,7 @@
     <section class="projects max-width-1120 header-fix" id="projects">
       <h2 class="projects__header">Наши проекты</h2>
       <div class="projects__content">
-        <template>
-          <div class="projects__card project-card">
-            <img class="project-card__image" src="" alt="" width="100%">
-            <h3 class="project-card__title"></h3>
-            <p class="project-card__description"></p>
-            <a class="project-card__button button" href="#">Подробнее</a>
-          </div>
-        </template>
+        
       </div>
       <div class="projects__more">
         <a href="#" class="projects__more-link">Больше работ</a>
@@ -297,6 +295,15 @@
       <use xlink:href="./img/sprite.svg#scroll-to-top"></use>
     </svg>
   </a>
+
+  <template id="projects__template">
+    <div class="projects__card project-card">
+      <img class="project-card__image" src="" alt="" width="100%">
+      <h3 class="project-card__title"></h3>
+      <p class="project-card__description"></p>
+      <a class="project-card__button button" href="#">Подробнее</a>
+    </div>
+  </template>
 
   <template id="achievements__template">
     <li class="glide__slide">

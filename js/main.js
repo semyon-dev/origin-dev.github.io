@@ -1,15 +1,20 @@
 // variables
-const screens = document.querySelector('main').children;
 const headerLinks = document.querySelectorAll('.header__link');
-const scrollToTopButton = document.querySelector('.scroll-to-top');
 const headerLogoLink = document.querySelector('.header__logo-link');
+const headerHam = document.querySelector('.header__ham');
+const screens = document.querySelector('main').children;
+
 const heroButton = document.querySelector('.hero__button');
 
+const whatWeDo = document.querySelector('.what-we-do');
+const whatWeDoText = whatWeDo.querySelector('.what-we-do__text');
+const whatWeDoImage = whatWeDo.querySelector('.what-we-do__image');
+
 const projectsContent = document.querySelector('.projects__content');
-const projectTemplate = projectsContent.querySelector('template').content;
+const projectTemplate = document.querySelector('#projects__template').content;
 
 const achievementsSlider = document.querySelector('.achievements__slider-inner');
-const achievementTemplate = document.getElementById('achievements__template').content;
+const achievementTemplate = document.querySelector('#achievements__template').content;
 
 const form = document.querySelector('.form');
 const formName = form.querySelector('[name="name"]');
@@ -22,6 +27,8 @@ const formSubmitText = formSubmit.querySelector('.form__submit-text');
 const formSubmitLogo = formSubmit.querySelector('.form__submit-logo');
 const formSubmitSentText = formSubmit.querySelector('.form__submit-sent-text');
 const formSubmitFailText = formSubmit.querySelector('.form__submit-fail-text');
+
+const scrollToTopButton = document.querySelector('.scroll-to-top');
 
 let screenScrollPoints;
 let activeLink = 0;
@@ -88,23 +95,25 @@ fetch("../content/content.json")
     }).mount();
   });
 addActiveHeaderLink();
+breakpoints();
 formSubmitLogo.style.animation = 'none';
 
 
 
 // event listeners
 (function(){ //zoom listener
-  var lastWidth = 0;
-  var lastHeight = 0;
+  let lastWidth = 0;
+  let lastHeight = 0;
   function pollZoomFireEvent() {
-    var widthNow = window.innerWidth;
-    var heightNow = window.innerHeight;
+    let widthNow = window.innerWidth;
+    let heightNow = window.innerHeight;
 
     if (lastWidth == widthNow && lastHeight == heightNow) return;
     lastWidth = widthNow;
     lastHeight = heightNow;
     // Length changed, user must have zoomed, invoke listeners.
     screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
+    breakpoints();
   }
   setInterval(pollZoomFireEvent, 100);
 })();
@@ -131,6 +140,10 @@ document.addEventListener('scroll', e => {
 headerLinks.forEach(link => {
   link.addEventListener('click', e => scrollTo(e.target));
 })
+
+headerHam.addEventListener('click', e => {
+  headerHam.classList.toggle('header__ham-close');
+});
 
 scrollToTopButton.addEventListener('click', e => scrollTo());
 headerLogoLink.addEventListener('click', e => scrollTo());
@@ -363,3 +376,25 @@ function changeLink(number) {
   addActiveHeaderLink();
 }
 
+function whatWeDoImageMove(where) {
+  const isImageInText = [...whatWeDoText.children].includes(whatWeDoImage);
+  if (where === 'block' && isImageInText) {
+    whatWeDoImage.remove();
+    whatWeDo.append(whatWeDoImage);
+  } else if (where === 'text' && !isImageInText) {
+    whatWeDoImage.remove();
+    whatWeDoText.append(whatWeDoImage);
+  }
+}
+
+function breakpoints() {
+  const widthNow = window.innerWidth;
+  const heightNow = window.innerHeight;
+  if (widthNow <= 576) {
+    whatWeDoImageMove('text');
+  } else if (widthNow <= 768) {
+    // console.log('nothing');
+  } else {
+    whatWeDoImageMove('block');
+  }
+}
