@@ -357,7 +357,7 @@ body {
 
 .hero__content {
   flex: 1;
-  margin: 0 8px;
+  padding: 0 32px;
 
   display: flex;
   justify-content: center;
@@ -423,17 +423,13 @@ body {
 
   } */
 
-  .hero__content-wrapper {
-    max-width: none;
-    width: 90%;
-  }
-
   .hero__logo-image {
     width: 55%;
+    max-width: 20rem;
   }
 
   .hero__logo-header {
-    font-size: 4.2rem;
+    font-size: 4rem;
   }
 
   .hero__paragraph {
@@ -451,6 +447,7 @@ body {
 -------------------- */
 .what-we-do {
   margin: 12.8rem auto;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -536,7 +533,7 @@ body {
 
 @media screen and (max-width: 576px) {
   .what-we-do {
-    position: relative;
+    margin: 0 auto 6.4rem;
   }
   
   .what-we-do__text {
@@ -657,6 +654,10 @@ body {
 
 
 @media screen and (max-width: 992px) {
+  .projects {
+    margin-bottom: 8rem;
+  }
+
   .projects__header {
     font-size: 4.2rem;
     margin-bottom: 5.4rem;
@@ -680,6 +681,10 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .projects {
+    margin-bottom: 6rem;
+  }
+
   .projects__header {
     font-size: 4.2rem;
     margin-bottom: 4.8rem;
@@ -697,12 +702,20 @@ body {
     font-size: 1.8rem;
   }
 
+  .projects__more {
+    margin-top: 1.8rem;
+  }
+
   .projects__more-link {
     font-size: 2rem;
   }
 }
 
 @media screen and (max-width: 576px) {
+  .projects {
+    margin-bottom: 4rem;
+  }
+  
   .projects__header {
     font-size: 3rem;
     margin-bottom: 3.2rem;
@@ -732,6 +745,10 @@ body {
 
   .project-card__button {
     font-size: 1.6rem;
+  }
+
+  .projects__more {
+    margin-top: 0;
   }
 
   .projects__more-link {
@@ -775,7 +792,7 @@ body {
 .achievements__card {
   display: grid;
   grid-template-columns: 1fr min-content;
-  grid-template-rows: min-content 1fr;
+  grid-template-rows: min-content min-content 1fr;
   grid-template-areas: "title image"
                        "desc  image"
                        "place place";
@@ -890,14 +907,80 @@ body {
 }
 
 @media screen and (max-width: 992px) {
+  .achievements {
+    margin: 0 0 5.6rem;
+  }
+
   .achievements__header {
     font-size: 4.2rem;
   }
+
+  .achievements__card-title {
+    font-size: 2.2rem;
+  }
+
+  .achievements__card-description {
+    font-size: 1rem;
+  }
+
+  .achievements__card-place {
+    font-size: 4.2rem;
+  }
+
+  .achievements__card-image-wrapper {
+    width: 100px;
+    height: 100px;
+  }
 }
 
+@media screen and (max-width: 768px) {
+  .achievements {
+    margin: 0 0 4.8rem;
+  }
+
+  .achievements__card-title {
+    font-size: 2rem;
+  }
+
+  .achievements__card-place {
+    font-size: 3.6rem;
+  }
+
+  .achievements__card-description {
+    font-size: 0.9rem;
+  }
+
+  .achievements__card-image-wrapper {
+    width: 90px;
+    height: 90px;
+    margin: 0 0 1.5rem 1rem;
+  }
+}
+
+
 @media screen and (max-width: 576px) {
+  .achievements {
+    margin: 0 0 3.6rem;
+  }
+
   .achievements__header {
     font-size: 3rem;
+  }
+
+  .achievements__card-title {
+    font-size: 1.8rem;
+  }
+
+  .achievements__card-description {
+    font-size: 0.8rem;
+  }
+
+  .achievements__card-place {
+    font-size: 3rem;
+  }
+
+  .achievements__card-image-wrapper {
+    margin: 0 0 1rem 0.5rem;
   }
 }
 
@@ -1195,14 +1278,56 @@ textarea.contacts__form-item_css-validate:valid {
 }
 
 @media screen and (max-width: 992px) {
+  .contacts {
+    margin-bottom: 6.4rem;
+  }
+
   .contacts__title {
     font-size: 4.2rem;
+    margin: 0 0 4.6rem;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .contacts {
+    margin-bottom: 4.8rem;
+  }
+
+  .contacts__title {
+    font-size: 3.6rem;
+    margin: 0 0 3rem;
   }
 }
 
 @media screen and (max-width: 576px) {
+  .contacts {
+    margin-bottom: 3.2rem;
+  }
+
   .contacts__title {
     font-size: 3rem;
+    margin: 0 0 1.6rem;
+  }
+
+  .contacts__link {
+    flex: 0 0 100%;
+  }
+
+  [name="email"].contacts__form-item,
+  [name="tel"].contacts__form-item {
+    flex-basis: 100%;
+  }
+
+  .form__email-after {
+    right: 1rem;
+    top: 5.7rem;
+    transform: none;
+  }
+  
+  .form__tel-after {
+    right: 1rem;
+    top: 10.3rem;
   }
 }
 
