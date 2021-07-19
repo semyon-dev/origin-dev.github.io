@@ -278,6 +278,7 @@ body {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  outline-color: #242424;
 }
 
 .header__ham-line {
@@ -407,6 +408,14 @@ body {
   .hero__image {
     display: none;
   }
+
+  .hero__logo-header {
+    font-size: 4.4rem;
+  }
+
+  .hero__paragraph {
+    font-size: 2rem;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -417,6 +426,18 @@ body {
   .hero__content-wrapper {
     max-width: none;
     width: 90%;
+  }
+
+  .hero__logo-image {
+    width: 55%;
+  }
+
+  .hero__logo-header {
+    font-size: 4.2rem;
+  }
+
+  .hero__paragraph {
+    font-size: 1.8rem;
   }
 
   .hero__button {
@@ -819,10 +840,13 @@ body {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  outline-color: #fff;
+  transition: outline-color .25s .1s;
 }
 
-.achievements__slider-control:focus {
-  outline-color: #fff;
+.achievements__slider-control:hover {
+  outline-color: #ccc;
+  transition-delay: 0s;
 }
 
 .achievements__slider-control svg {
@@ -862,6 +886,18 @@ body {
 
   .achievements__slider-control_right {
     right: -12px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .achievements__header {
+    font-size: 4.2rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .achievements__header {
+    font-size: 3rem;
   }
 }
 
@@ -1155,6 +1191,18 @@ textarea.contacts__form-item_css-validate:valid {
   }
   to {
     transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .contacts__title {
+    font-size: 4.2rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .contacts__title {
+    font-size: 3rem;
   }
 }
 
