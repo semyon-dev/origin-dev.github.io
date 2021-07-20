@@ -141,10 +141,13 @@ document.addEventListener('scroll', e => {
 headerLinks.forEach(link => {
   link.addEventListener('click', e => {
     scrollTo(e.target);
+    let delay = 800;
+    if (e.target.classList.contains('header__link_active'))
+      delay = 0;
     for (let i = headerLinks.length - 1; i >= 0; i--) {
-      setTimeout(() => headerLinks[i].parentElement.classList.remove('header__list-item-shown'), ((headerLinks.length - 1 - i) * 100 + 800));
+      setTimeout(() => headerLinks[i].parentElement.classList.remove('header__list-item-shown'), ((headerLinks.length - 1 - i) * 100 + delay));
     }
-    setTimeout(() => header.classList.remove('header_opened-ham'), (headerLinks.length * 100 + 800));
+    setTimeout(() => header.classList.remove('header_opened-ham'), (headerLinks.length * 100 + delay));
   });
 })
 
