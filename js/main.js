@@ -1,7 +1,8 @@
 // variables
-const headerLinks = document.querySelectorAll('.header__link');
-const headerLogoLink = document.querySelector('.header__logo-link');
-const headerHam = document.querySelector('.header__ham');
+const header = document.querySelector('.header');
+const headerLinks = header.querySelectorAll('.header__link');
+const headerLogoLink = header.querySelector('.header__logo-link');
+const headerHam = header.querySelector('.header__ham');
 const screens = document.querySelector('main').children;
 
 const heroButton = document.querySelector('.hero__button');
@@ -138,17 +139,30 @@ document.addEventListener('scroll', e => {
 })
 
 headerLinks.forEach(link => {
-  link.addEventListener('click', e => scrollTo(e.target));
+  link.addEventListener('click', e => {
+    scrollTo(e.target);
+    for (let i = headerLinks.length - 1; i >= 0; i--) {
+      setTimeout(() => headerLinks[i].parentElement.classList.remove('header__list-item-shown'), ((headerLinks.length - 1 - i) * 100 + 800));
+    }
+    setTimeout(() => header.classList.remove('header_opened-ham'), (headerLinks.length * 100 + 800));
+  });
 })
 
 headerHam.addEventListener('click', e => {
-  headerHam.classList.toggle('header__ham-close');
+  if (header.classList.contains('header_opened-ham')) {
+    for (let i = headerLinks.length - 1; i >= 0; i--) {
+      setTimeout(() => headerLinks[i].parentElement.classList.remove('header__list-item-shown'), ((headerLinks.length - 1 - i) * 100));
+    }
+    setTimeout(() => header.classList.remove('header_opened-ham'), (headerLinks.length * 100));
+  } else {
+    header.classList.add('header_opened-ham');
+    for (let i = 0; i < headerLinks.length; i++) {
+      setTimeout(() => headerLinks[i].parentElement.classList.add('header__list-item-shown'), (i * 100 + 100));
+    }
+  }
 });
 
-scrollToTopButton.addEventListener('click', e => {
-  scrollToTopButton.blur();
-  scrollTo();
-});
+scrollToTopButton.addEventListener('click', e => scrollTo());
 headerLogoLink.addEventListener('click', e => scrollTo());
 heroButton.addEventListener('click', e => scrollTo(headerLinks[3]));
 
