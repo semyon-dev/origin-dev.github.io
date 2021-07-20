@@ -142,7 +142,7 @@ body {
   z-index: 1000;
   background-color: #fff;
   box-shadow: 0 4px 11px rgba(0, 0, 0, 0.05);
-  transition: height .75s ease-out;
+  transition: height .65s cubic-bezier(.34,.06,.2,1);
 }
 
 .header__content {
