@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <title>origin-dev</title>
-  <meta name="description" content="">
+  <meta name="description" content="Команда разработки IT-продуктов и решения Ваших бизнес-задач. Создаём новое с 2020 года.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!--todo------------------------ Open Graph Protocol -------------------------->
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
+  <meta property="og:title" content="Origin Dev">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://https://origin-dev.tech/">
+  <meta property="og:image" content="https://origin-dev.tech/og-icon.jpg">
 
   <!-------------------------- Favicon -------------------------->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -37,7 +37,7 @@
     <nav class="header__content max-width-1120">
       <a class="header__logo-link" href="#hero"><svg class="header__logo" viewBox="0 0 563 646" width="56">
         <use xlink:href="./img/sprite.svg#logo"></use>
-      </svg></a>
+      </svg><span class="sr-only">На главную</span></a>
       <ul class="header__list">
         <li class="header__list-item">
           <a class="header__link" href="#hero">Главная</a>
@@ -53,7 +53,7 @@
         </li>
       </ul>
     </nav>
-    <div class="header__ham" role="button" tabindex="0">
+    <div class="header__ham" role="button" aria-label="Открыть меню" tabindex="0">
       <span class="header__ham-line"></span>
       <span class="header__ham-line"></span>
       <span class="header__ham-line"></span>
@@ -62,7 +62,18 @@
 
   <main>
     <section class="hero" id="hero">
-      <img class="hero__image" src="./img/hero.jpg" alt="">
+      <picture class="hero__image">
+        <source
+          media="(min-width: 992px)"
+          srcset="./img/hero.webp"
+          type="image/webp">
+        <source
+          media="(min-width: 992px)"
+          srcset="./img/hero.jpg"
+          type="image/jpg">
+        <img
+          alt="Macbook и код">
+      </picture>
       <div class="hero__content">
         <div class="hero__content-wrapper">
           <div class="hero__logo">
@@ -136,7 +147,16 @@
           </div>
         </dl>
       </div>
-      <img class="what-we-do__image" src="./img/what-we-do.jpg" alt="">
+      <picture class="what-we-do__image">
+        <source
+          srcset="./img/what-we-do.webp"
+          type="image/webp">
+        <source
+          srcset="./img/what-we-do.jpg"
+          type="image/jpg">
+        <img
+          alt="Программист за работой">
+      </picture>
     </section>
     <section class="projects max-width-1120 header-fix" id="projects">
       <h2 class="projects__header">Наши проекты</h2>
@@ -159,12 +179,12 @@
                 </ul>
               </div>
               <div class="achievements__slider-controls" data-glide-el="controls">
-                <button class="achievements__slider-control achievements__slider-control_left" data-glide-dir="<">
+                <button class="achievements__slider-control achievements__slider-control_left" aria-label="Swipe left" data-glide-dir="<">
                   <svg viewBox="0 0 23 15" width="75%">
                     <use xlink:href="./img/sprite.svg#scroll-to-top"></use>
                   </svg>
                 </button>
-                <button class="achievements__slider-control achievements__slider-control_right" data-glide-dir=">">
+                <button class="achievements__slider-control achievements__slider-control_right" aria-label="Swipe right" data-glide-dir=">">
                   <svg viewBox="0 0 23 15" width="75%">
                     <use xlink:href="./img/sprite.svg#scroll-to-top"></use>
                   </svg>
@@ -264,6 +284,7 @@
                 <svg class="footer__link-icon" height="50%">
                   <use xlink:href="./img/sprite.svg#email"></use>
                 </svg>
+                <span class="sr-only">Наш Email</span>
               </a>
             </li>
             <li class="footer__list-item">
@@ -271,6 +292,7 @@
                 <svg class="footer__link-icon" height="50%">
                   <use xlink:href="./img/sprite.svg#telegram"></use>
                 </svg>
+                <span class="sr-only">Наш Telegram</span>
               </a>
             </li>
             <li class="footer__list-item">
@@ -278,6 +300,7 @@
                 <svg class="footer__link-icon" height="50%">
                   <use xlink:href="./img/sprite.svg#whatsapp"></use>
                 </svg>
+                <span class="sr-only">Наш WhatsApp</span>
               </a>
             </li>
             <li class="footer__list-item">
@@ -285,6 +308,7 @@
                 <svg class="footer__link-icon" height="50%">
                   <use xlink:href="./img/sprite.svg#instagram"></use>
                 </svg>
+                <span class="sr-only">Наш Instagram</span>
               </a>
             </li>
           </ul>
@@ -298,11 +322,21 @@
     <svg viewBox="0 0 23 15" width="35%">
       <use xlink:href="./img/sprite.svg#scroll-to-top"></use>
     </svg>
+    <span class="sr-only">Подняться выше</span>
   </a>
 
   <template id="projects__template">
     <div class="projects__card project-card">
-      <img class="project-card__image" src="" alt="" width="100%">
+      <picture class="project-card__image">
+        <source
+          srcset=""
+          type="image/webp">
+        <source
+          srcset=""
+          type="image/jpg">
+        <img
+          alt="">
+      </picture>
       <h3 class="project-card__title"></h3>
       <p class="project-card__description"></p>
       <a class="project-card__button button" href="#">Подробнее</a>
@@ -315,7 +349,7 @@
         <h3 class="achievements__card-title"></h3>
         <p class="achievements__card-description"></p>
         <div class="achievements__card-image-wrapper">
-          <img class="achievements__card-image" src="" alt="" height="auto" width="75%">
+          <img class="achievements__card-image" src="" alt="" width="94.5">
         </div>
         <strong class="achievements__card-place"></strong>
       </div>

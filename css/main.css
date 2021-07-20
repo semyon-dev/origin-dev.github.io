@@ -102,6 +102,15 @@ body {
   box-sizing: border-box;
 }
 
+picture img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+}
+
 
 /* --------------------
          button
@@ -448,9 +457,7 @@ body {
 
 .hero__image {
   width: 50vw;
-
   background-color: #2998FF;
-  object-fit: cover;
 }
 
 .hero__content {
@@ -609,10 +616,18 @@ body {
 
 .what-we-do__image {
   min-width: 0px;
-  min-height: 64.3rem;
-  object-fit: cover;
+  height: 64.3rem;
   margin-left: 20px;
+}
+
+.what-we-do__image img {
   border-radius: 16px;
+}
+
+@media screen and (max-width: 992px) {
+  .what-we-do__image {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -622,10 +637,6 @@ body {
 
   .what-we-do__text {
     max-width: 57rem;
-  }
-
-  .what-we-do__image {
-    display: none;
   }
 }
 
@@ -655,7 +666,7 @@ body {
 
   .what-we-do__image {
     display: block;
-    max-height: 26rem;
+    height: 26rem;
     min-height: auto;
     width: 100%;
     margin: 0 0 1.6rem;
@@ -705,10 +716,10 @@ body {
 
 .project-card__image {
   width: 100%;
-  object-fit: cover;
   box-sizing: border-box;
   border: 1px solid #BEBEBE;
   border-radius: 16px;
+  overflow: hidden;
 }
 
 .project-card__title {
@@ -934,6 +945,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.achievements__card-image {
+  width: 75%;
 }
 
 .achievements__card-place {

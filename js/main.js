@@ -44,8 +44,10 @@ fetch("../content/content.json")
     const projects = json.projects;
     for (let i = 0; i < 4; i++) {
       const project = projectTemplate.cloneNode(true);
-      project.querySelector('.project-card__image').src = projects[i].imageURL;
-      project.querySelector('.project-card__image').alt = `${projects[i].title} logo`;
+      const image = project.querySelector('.project-card__image');
+      image.children[0].srcset = `./img/${projects[i].imageName}.webp`;
+      image.children[1].srcset = `./img/${projects[i].imageName}.jpg`;
+      image.children[2].alt = `${projects[i].title} logo`;
       project.querySelector('.project-card__title').textContent = projects[i].title;
       project.querySelector('.project-card__description').textContent = projects[i].description;
       projectsContent.append(project);

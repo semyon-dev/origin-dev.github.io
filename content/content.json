@@ -3,22 +3,22 @@
     {
       "title": "Суперприложение i.moscow",
       "description": "Проект, объединяющий сервисы Московского Инновационного Кластера в единое целое, предоставляя удобный пользовательский интерфейс",
-      "imageURL": "./img/projects__i.moscow.jpg"
+      "imageName": "projects__i.moscow"
     },
     {
       "title": "Микросервисы в мобильных приложениях",
       "description": "Проект, объединяющий сервисы Московского Инновационного Кластера в единое целое, предоставляя удобный пользовательский интерфейс",
-      "imageURL": "./img/projects__devhack.jpg"
+      "imageName": "projects__devhack"
     },
     {
       "title": "Криптовалютный кошелек BGL",
       "description": "Проект, объединяющий сервисы Московского Инновационного Кластера в единое целое, предоставляя удобный пользовательский интерфейс",
-      "imageURL": "./img/projects__bitgesell.jpg"
+      "imageName": "projects__bitgesell"
     },
     {
       "title": "9-18.ru",
       "description": "Проект, объединяющий сервисы Московского Инновационного Кластера в единое целое, предоставляя удобный пользовательский интерфейс",
-      "imageURL": "./img/projects__9-18.jpg"
+      "imageName": "projects__9-18"
     }
   ],
   "achievements": [
@@ -37,7 +37,7 @@
     {
       "title": "Crypto Wallet Kickstart",
       "description": "Разработка мобильного кошелька для криптовалюты Bitgesell",
-      "imageURL": "./img/achievements__cryptowallet-kickstart.svg",
+      "imageURL": "./img/achievements__cryptowallet-kickstart.png",
       "place" : "1"
     }
   ]
