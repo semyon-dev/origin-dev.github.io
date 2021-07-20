@@ -145,7 +145,10 @@ headerHam.addEventListener('click', e => {
   headerHam.classList.toggle('header__ham-close');
 });
 
-scrollToTopButton.addEventListener('click', e => scrollTo());
+scrollToTopButton.addEventListener('click', e => {
+  scrollToTopButton.blur();
+  scrollTo();
+});
 headerLogoLink.addEventListener('click', e => scrollTo());
 heroButton.addEventListener('click', e => scrollTo(headerLinks[3]));
 
