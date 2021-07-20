@@ -160,7 +160,7 @@ headerHam.addEventListener('click', e => {
   } else {
     header.classList.add('header_opened-ham');
     for (let i = 0; i < headerLinks.length; i++) {
-      setTimeout(() => headerLinks[i].parentElement.classList.add('header__list-item-shown'), (i * 100 + 100));
+      setTimeout(() => headerLinks[i].parentElement.classList.add('header__list-item-shown'), (i * 100 + 150));
     }
   }
 });
