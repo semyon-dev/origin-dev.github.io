@@ -466,7 +466,8 @@ picture img {
 
 .hero__content {
   flex: 0 0 50vw;
-  padding: 0 32px;
+  margin: 0;
+  padding: 0;
 
   display: flex;
   justify-content: center;
@@ -628,7 +629,7 @@ picture img {
   border-radius: 16px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 992px) {
   .what-we-do__image {
     display: none;
   }
