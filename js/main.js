@@ -80,7 +80,7 @@ fetch("../content/content.json")
       animationTimingFunc: 'cubic-bezier(0.34, 1.4, 0.64, 1)',
       animationDuration: 350,
       breakpoints: {
-        992: {
+        1024: {
           focusAt: 0,
           perView: 2,
           perTouch: 1,
