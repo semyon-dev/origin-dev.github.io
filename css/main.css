@@ -456,12 +456,16 @@ picture img {
 }
 
 .hero__image {
-  width: 50vw;
+  flex: 1;
   background-color: #2998FF;
 }
 
+.hero__image img {
+  object-position: bottom left;
+}
+
 .hero__content {
-  flex: 1;
+  flex: 0 0 50vw;
   padding: 0 32px;
 
   display: flex;
