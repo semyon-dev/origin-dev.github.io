@@ -278,7 +278,7 @@ function formButtonWait() {
   formSubmitLogo.style.animation = '';
   formSubmit.classList.add('form__submit_sending');
   fadeOut(formSubmitText, 500);
-  setTimeout(() => fadeIn(formSubmitLogo, 500), 500);
+  fadeIn(formSubmitLogo, 500);
 }
 
 function formButtonSent() {
