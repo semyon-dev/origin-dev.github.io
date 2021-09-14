@@ -225,7 +225,7 @@ form.addEventListener('submit', e => {
   `Origin Dev: Пользователь ${formName.value} оставил сообщение!` : 
   'Origin Dev: Безымянный пользователь оставил сообщение!';
   
-  fetch("https://formsubmit.co/ajax/ilya.iskra1337@gmail.com", {
+  fetch("https://formsubmit.co/ajax/contact@origin-dev.tech", {
     method: "POST",
     headers: { 
       'Content-Type': 'application/json',
