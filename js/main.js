@@ -50,6 +50,7 @@ fetch("../content/content.json")
       image.children[2].alt = `${projects[i].title} logo`;
       project.querySelector('.project-card__title').textContent = projects[i].title;
       project.querySelector('.project-card__description').textContent = projects[i].description;
+      project.querySelector('.project-card__button').href = `./projects.html#${i}`;
       projectsContent.append(project);
     }
 
@@ -100,6 +101,11 @@ fetch("../content/content.json")
 addActiveHeaderLink();
 breakpoints();
 formSubmitLogo.style.animation = 'none';
+// scroll launch
+var scroll = new SmoothScroll('a[href*="#"]', {
+	speed: 300,
+  easing: 'easeInOutCubic'
+});
 
 
 
@@ -142,7 +148,7 @@ document.addEventListener('scroll', e => {
 
 headerLinks.forEach(link => {
   link.addEventListener('click', e => {
-    scrollTo(e.target);
+    myScrollTo(e.target);
     let delay = 800;
     if (e.target.classList.contains('header__link_active'))
       delay = 0;
@@ -167,9 +173,9 @@ headerHam.addEventListener('click', e => {
   }
 });
 
-scrollToTopButton.addEventListener('click', e => scrollTo());
-headerLogoLink.addEventListener('click', e => scrollTo());
-heroButton.addEventListener('click', e => scrollTo(headerLinks[3]));
+scrollToTopButton.addEventListener('click', e => myScrollTo());
+headerLogoLink.addEventListener('click', e => myScrollTo());
+heroButton.addEventListener('click', e => myScrollTo(headerLinks[3]));
 
 formName.addEventListener('input', e => {
   if (formName.value !== '') {
@@ -329,7 +335,7 @@ function formClear() {
   formTel.required = true;
 }
 
-function scrollTo(scrollLink = headerLinks[0]) {
+function myScrollTo(scrollLink = headerLinks[0]) {
   scrollLink.classList.add('header__link_pre-active');
 
   headerLinks.forEach(link => {
@@ -361,7 +367,7 @@ function getAbsoluteHeight(el) {
 
 function makeScreenScrollPoints(screens) {
   const headerHeight = 90;
-  const screenScrollPoints = [(-1 * headerHeight - 60)];
+  const screenScrollPoints = [(-1 * headerHeight - 80)];
 
   for (let i = 0; i < screens.length - 1; i++) {
     if (screens[i].id === "")
