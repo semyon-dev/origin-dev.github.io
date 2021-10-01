@@ -80,21 +80,19 @@ fetch("../content/content.json")
       gap: 16,
       peek: 8,
       animationTimingFunc: 'cubic-bezier(0.65, 0, 0.35, 1)',
-      animationDuration: 750,
+      animationDuration: 500,
       breakpoints: {
         1024: {
           focusAt: 0,
           perView: 2,
           perTouch: 1,
-          touchRatio: 0.6,
-          animationTimingFunc: 'cubic-bezier(0.34, 1.3, 0.64, 1)',
+          touchRatio: 0.6
         },
         576: {
           focusAt: 'center',
           perView: 1,
           perTouch: 1,
-          touchRatio: 0.5,
-          animationTimingFunc: 'cubic-bezier(0.34, 1.25, 0.64, 1)',
+          touchRatio: 0.5
         }
       }
     }).mount();
