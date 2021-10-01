@@ -70,6 +70,7 @@ fetch("../content/content.json")
     new Glide('.glide', {
       type: 'carousel',
       focusAt: 'center',
+      autoplay: 4000,
       startAt: 1,
       perView: 3,
       perTouch: 2,
@@ -78,8 +79,8 @@ fetch("../content/content.json")
       keyboard: false,
       gap: 16,
       peek: 8,
-      animationTimingFunc: 'cubic-bezier(0.34, 1.4, 0.64, 1)',
-      animationDuration: 350,
+      animationTimingFunc: 'cubic-bezier(0.65, 0, 0.35, 1)',
+      animationDuration: 750,
       breakpoints: {
         1024: {
           focusAt: 0,
