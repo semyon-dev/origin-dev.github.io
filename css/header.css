@@ -111,6 +111,7 @@
 
 .header__link.header__link_not-active::after {
   width: 40% !important;
+  height: 0px !important;
   bottom: 0px !important;
   left: 30% !important;
   background-color: #242424 !important;

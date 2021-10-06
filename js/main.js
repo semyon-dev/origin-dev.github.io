@@ -101,10 +101,12 @@ addActiveHeaderLink();
 breakpoints();
 formSubmitLogo.style.animation = 'none';
 // scroll launch
-var scroll = new SmoothScroll('a[href*="#"]', {
+let scroll = new SmoothScroll();
+const scrollOptions = {
 	speed: 300,
+  durationMax: 1000,
   easing: 'easeInOutCubic'
-});
+};
 
 
 
@@ -131,6 +133,7 @@ document.addEventListener('scroll', e => {
   screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
   const currentActive = intervalSearch(window.scrollY, screenScrollPoints);
   if (currentActive !== activeLink) {
+    // console.log(`Current link has been changed from ${activeLink} to ${currentActive}`);
     changeLink(currentActive);
   }
 
@@ -143,10 +146,21 @@ document.addEventListener('scroll', e => {
     scrollToTopButton.classList.remove('scroll-to-top_active');
     scrollToTopButton.tabIndex = -1;
   }
-})
+});
 
 headerLinks.forEach(link => {
   link.addEventListener('click', e => {
+    if (Array.from(headerLinks).indexOf(e.target) === activeLink) {
+      const currentWindowScrollY = window.scrollY;
+      const screenScrollPoint = screenScrollPoints[activeLink] + 20;
+      const safeZone = 50;
+      // console.log(`${screenScrollPoint - safeZone} <= ${currentWindowScrollY} <= ${screenScrollPoint + safeZone}`)
+      if (screenScrollPoint - safeZone <= currentWindowScrollY && currentWindowScrollY <= screenScrollPoint + safeZone) {
+        e.preventDefault();
+        return;
+      }
+    }
+    
     myScrollTo(e.target);
     let delay = 800;
     if (e.target.classList.contains('header__link_active'))
@@ -156,7 +170,7 @@ headerLinks.forEach(link => {
     }
     setTimeout(() => header.classList.remove('header_opened-ham'), (headerLinks.length * 100 + delay));
   });
-})
+});
 
 headerHam.addEventListener('click', e => {
   if (header.classList.contains('header_opened-ham')) {
@@ -182,7 +196,7 @@ formName.addEventListener('input', e => {
   } else {
     formName.classList.remove('contacts__form-item_css-validate');
   }
-})
+});
 
 formEmail.addEventListener('input', e => {
   if (formEmail.value !== '') {
@@ -342,10 +356,16 @@ function myScrollTo(scrollLink = headerLinks[0]) {
       link.classList.add('header__link_not-active');
   });
 
+  let query = "#" + scrollLink.href.split("#")[1];
+  scroll.animateScroll(document.querySelector(query), null, scrollOptions);
+
   let checkIfScrollEnded = setInterval(() => {
+    // console.log(`${[...headerLinks].indexOf(scrollLink)} ${intervalSearch(window.scrollY, screenScrollPoints)}`)
     if ([...headerLinks].indexOf(scrollLink) === intervalSearch(window.scrollY, screenScrollPoints)) {
-      headerLinks.forEach(link => link.classList.remove('header__link_not-active'));
-      clearInterval(checkIfScrollEnded);
+      setTimeout(() => {
+        headerLinks.forEach(link => link.classList.remove('header__link_not-active'));
+        clearInterval(checkIfScrollEnded);
+      }, 500);
     }
   }, 100);
   
@@ -393,7 +413,6 @@ function clearActiveHeaderLinks() {
 }
 
 function addActiveHeaderLink() {
-  headerLinks[activeLink].classList.remove('header__link_pre-active')
   headerLinks[activeLink].classList.add('header__link_active');
 }
 

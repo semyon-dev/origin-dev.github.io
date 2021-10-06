@@ -571,9 +571,13 @@ picture img {
 /* --------------------
       achievements
 -------------------- */
+#achievements {
+  margin-bottom: 9.2rem;
+}
+
 .achievements {
   width: 100%;
-  margin: 0 0 9.2rem;
+  margin: 0;
   padding: 2.5rem 0 1.6rem;
   background-color: #2998FF;
 }
