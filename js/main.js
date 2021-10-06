@@ -128,6 +128,10 @@ const scrollOptions = {
   setInterval(pollZoomFireEvent, 100);
 })();
 
+document.addEventListener('DOMContentLoaded', function() {
+  document.body.classList.remove('preload-transition');
+});
+
 document.addEventListener('scroll', e => {
   //header links underline
   screenScrollPoints = makeScreenScrollPoints(Array.from(screens));

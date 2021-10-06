@@ -95,6 +95,14 @@ body {
   font-size: 1.6rem;
 }
 
+.preload-transition * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
 .max-width-1120 {
   max-width: 1120px;
   margin: 0 auto;
