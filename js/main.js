@@ -29,6 +29,8 @@ const formSubmitLogo = formSubmit.querySelector('.form__submit-logo');
 const formSubmitSentText = formSubmit.querySelector('.form__submit-sent-text');
 const formSubmitFailText = formSubmit.querySelector('.form__submit-fail-text');
 
+const footerLogoLink = document.querySelector('.footer__logo-link');
+
 const scrollToTopButton = document.querySelector('.scroll-to-top');
 
 let screenScrollPoints;
@@ -192,6 +194,7 @@ headerHam.addEventListener('click', e => {
 
 scrollToTopButton.addEventListener('click', e => myScrollTo());
 headerLogoLink.addEventListener('click', e => myScrollTo());
+footerLogoLink.addEventListener('click', e => myScrollTo());
 heroButton.addEventListener('click', e => myScrollTo(headerLinks[3]));
 
 formName.addEventListener('input', e => {
