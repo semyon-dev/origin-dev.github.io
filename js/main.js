@@ -380,7 +380,7 @@ function myScrollTo(scrollLink = headerLinks[0]) {
     scrollLink.classList.remove('header__link_pre-active');
     headerLinks.forEach(link => link.classList.remove('header__link_not-active'));
     clearInterval(checkIfScrollEnded);
-  }, 1000);
+  }, 1500);
 }
 
 function getAbsoluteHeight(el) {
@@ -425,8 +425,10 @@ function addActiveHeaderLink() {
 
 function changeLink(number) {
   activeLink = number;
-  clearActiveHeaderLinks();
-  addActiveHeaderLink();
+  setTimeout(() => {
+    clearActiveHeaderLinks();
+    addActiveHeaderLink();
+  }, 150);
 }
 
 function whatWeDoImageMove(where) {
