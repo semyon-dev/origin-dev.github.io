@@ -88,7 +88,6 @@
      font-family: 'Rubik', sans-serif;
      font-size: 62.5%;
      color: #242424;
-     scroll-behavior: smooth;
    }
    
    body {
@@ -112,8 +111,68 @@
    }
 
 
+/* --------------------
+         main
+-------------------- */
+main {
+  padding-top: 170px;
+  padding-bottom: 64px;
+  background-image: url("../img/projects-background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #2998FF;
+}
+
+.projects__header {
+  margin: 0 0 32px;
+  font-size: 4.8rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.projects__content {
+  min-height: 200vh;
+  background-color: #fff;
+  border-radius: 32px;
+}
 
 
+/* --------------------
+    scroll-to-top
+-------------------- */
+.scroll-to-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: -128px;
+  right: -128px;
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+  background-color: #2998FF;
+  z-index: 1000;
+  transition: right .5s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+              bottom .5s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+              background-color .25s .1s;
+}
+
+.scroll-to-top svg {
+  fill: #fff;
+}
+
+.scroll-to-top:focus,
+.scroll-to-top:hover {
+  outline: none;
+  background-color: #00509A;
+  transition-delay: 0s;
+}
+
+.scroll-to-top_active {
+  right: 5%;
+  bottom: 7%;
+}
 
 
 

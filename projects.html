@@ -37,8 +37,9 @@
 
   <!-------------------------- Styles -------------------------->
   <link rel="stylesheet" href="./css/normalize.css">
-  <link rel="stylesheet" href="./css/projects.css">
   <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/projects.css">
+  <link rel="stylesheet" href="./css/footer.css">
 </head>
 
 <body>
@@ -72,12 +73,75 @@
   </header>
 
   <main>
-    
+    <section class="projects max-width-1120">
+      <h1 class="projects__header">Проекты</h1>
+      <div class="projects__content">
+
+      </div>
+    </section>
   </main>
 
+  <footer class="footer">
+    <div class="footer__content max-width-1120">
+      <div class="footer__links">
+        <a class="footer__logo-link" href="/#hero">
+          <svg class="footer__logo" viewBox="0 0 563 646" width="56">
+            <use xlink:href="./img/sprite.svg#logo"></use>
+          </svg>
+          <span class="footer__logo-title">origin dev</span>
+        </a>
+        <div class="footer__list-wrapper">
+          <ul class="footer__list">
+            <li class="footer__list-item">
+              <a class="footer__link" href="mailto:contact@origin-dev.tech">
+                <svg class="footer__link-icon" height="50%">
+                  <use xlink:href="./img/sprite.svg#email"></use>
+                </svg>
+                <span class="sr-only">Наш Email</span>
+              </a>
+            </li>
+            <li class="footer__list-item">
+              <a class="footer__link" href="https://t.me/semyon_dev">
+                <svg class="footer__link-icon" height="50%">
+                  <use xlink:href="./img/sprite.svg#telegram"></use>
+                </svg>
+                <span class="sr-only">Наш Telegram</span>
+              </a>
+            </li>
+            <li class="footer__list-item">
+              <a class="footer__link" href="https://wa.me/+79116220180">
+                <svg class="footer__link-icon" height="50%">
+                  <use xlink:href="./img/sprite.svg#whatsapp"></use>
+                </svg>
+                <span class="sr-only">Наш WhatsApp</span>
+              </a>
+            </li>
+            <li class="footer__list-item">
+              <a class="footer__link" href="https://www.instagram.com/origin_dev/">
+                <svg class="footer__link-icon" height="50%">
+                  <use xlink:href="./img/sprite.svg#instagram"></use>
+                </svg>
+                <span class="sr-only">Наш Instagram</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">Origin Dev<br>2020 — 2021<br>&copy;</p>
+    </div>
+  </footer>
+
+  <a class="scroll-to-top" href="#">
+    <svg viewBox="0 0 23 15" width="35%">
+      <use xlink:href="./img/sprite.svg#scroll-to-top"></use>
+    </svg>
+    <span class="sr-only">Подняться выше</span>
+  </a>
 
   <!-------------------------- Scripts -------------------------->
-  <script src="./js/main.js"></script>
+  <script src="./js/smooth-scroll.polyfills.min.js"></script>
+  <script src="./js/header.js"></script>
+  <script src="./js/projects.js"></script>
  
   <!--todo------------------------ Google Analytics -------------------------->
   <!--! Change UA-XXXXX-Y to be your site's ID. -->

@@ -1,10 +1,4 @@
 // variables
-const header = document.querySelector('.header');
-const headerLinks = header.querySelectorAll('.header__link');
-const headerLogoLink = header.querySelector('.header__logo-link');
-const headerHam = header.querySelector('.header__ham');
-const screens = document.querySelector('main').children;
-
 const heroButton = document.querySelector('.hero__button');
 
 const whatWeDo = document.querySelector('.what-we-do');
@@ -33,8 +27,6 @@ const footerLogoLink = document.querySelector('.footer__logo-link');
 
 const scrollToTopButton = document.querySelector('.scroll-to-top');
 
-let screenScrollPoints;
-let activeLink = 0;
 
 
 
@@ -99,16 +91,8 @@ fetch("../content/content.json")
       }
     }).mount();
   });
-addActiveHeaderLink();
 breakpoints();
 formSubmitLogo.style.animation = 'none';
-// scroll launch
-let scroll = new SmoothScroll();
-const scrollOptions = {
-	speed: 300,
-  durationMax: 1000,
-  easing: 'easeInOutCubic'
-};
 
 
 
@@ -124,7 +108,6 @@ const scrollOptions = {
     lastWidth = widthNow;
     lastHeight = heightNow;
     // Length changed, user must have zoomed, invoke listeners.
-    screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
     breakpoints();
   }
   setInterval(pollZoomFireEvent, 100);
@@ -135,14 +118,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('scroll', e => {
-  //header links underline
-  screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
-  const currentActive = intervalSearch(window.scrollY, screenScrollPoints);
-  if (currentActive !== activeLink) {
-    // console.log(`Current link has been changed from ${activeLink} to ${currentActive}`);
-    changeLink(currentActive);
-  }
-
   //scroll-to-top button
   if (window.scrollY >= screens[0].scrollHeight - 91) {
     scrollToTopButton.classList.add('scroll-to-top_active');
@@ -154,46 +129,7 @@ document.addEventListener('scroll', e => {
   }
 });
 
-headerLinks.forEach(link => {
-  link.addEventListener('click', e => {
-    if (Array.from(headerLinks).indexOf(e.target) === activeLink) {
-      const currentWindowScrollY = window.scrollY;
-      const screenScrollPoint = screenScrollPoints[activeLink] + 20;
-      const safeZone = 50;
-      // console.log(`${screenScrollPoint - safeZone} <= ${currentWindowScrollY} <= ${screenScrollPoint + safeZone}`)
-      if (screenScrollPoint - safeZone <= currentWindowScrollY && currentWindowScrollY <= screenScrollPoint + safeZone) {
-        e.preventDefault();
-        return;
-      }
-    }
-    
-    myScrollTo(e.target);
-    let delay = 800;
-    if (e.target.classList.contains('header__link_active'))
-      delay = 0;
-    for (let i = headerLinks.length - 1; i >= 0; i--) {
-      setTimeout(() => headerLinks[i].parentElement.classList.remove('header__list-item-shown'), ((headerLinks.length - 1 - i) * 100 + delay));
-    }
-    setTimeout(() => header.classList.remove('header_opened-ham'), (headerLinks.length * 100 + delay));
-  });
-});
-
-headerHam.addEventListener('click', e => {
-  if (header.classList.contains('header_opened-ham')) {
-    for (let i = headerLinks.length - 1; i >= 0; i--) {
-      setTimeout(() => headerLinks[i].parentElement.classList.remove('header__list-item-shown'), ((headerLinks.length - 1 - i) * 100));
-    }
-    setTimeout(() => header.classList.remove('header_opened-ham'), (headerLinks.length * 100));
-  } else {
-    header.classList.add('header_opened-ham');
-    for (let i = 0; i < headerLinks.length; i++) {
-      setTimeout(() => headerLinks[i].parentElement.classList.add('header__list-item-shown'), (i * 100 + 150));
-    }
-  }
-});
-
 scrollToTopButton.addEventListener('click', e => myScrollTo());
-headerLogoLink.addEventListener('click', e => myScrollTo());
 footerLogoLink.addEventListener('click', e => myScrollTo());
 heroButton.addEventListener('click', e => myScrollTo(headerLinks[3]));
 
@@ -353,82 +289,6 @@ function formClear() {
 
   formEmail.required = true;
   formTel.required = true;
-}
-
-function myScrollTo(scrollLink = headerLinks[0]) {
-  scrollLink.classList.add('header__link_pre-active');
-
-  headerLinks.forEach(link => {
-    if (link !== scrollLink && link !== headerLinks[activeLink])
-      link.classList.add('header__link_not-active');
-  });
-
-  let query = "#" + scrollLink.href.split("#")[1];
-  scroll.animateScroll(document.querySelector(query), null, scrollOptions);
-
-  let checkIfScrollEnded = setInterval(() => {
-    // console.log(`${[...headerLinks].indexOf(scrollLink)} ${intervalSearch(window.scrollY, screenScrollPoints)}`)
-    if ([...headerLinks].indexOf(scrollLink) === intervalSearch(window.scrollY, screenScrollPoints)) {
-      setTimeout(() => {
-        headerLinks.forEach(link => link.classList.remove('header__link_not-active'));
-        clearInterval(checkIfScrollEnded);
-      }, 500);
-    }
-  }, 100);
-  
-  setTimeout(() => {
-    scrollLink.classList.remove('header__link_pre-active');
-    headerLinks.forEach(link => link.classList.remove('header__link_not-active'));
-    clearInterval(checkIfScrollEnded);
-  }, 1500);
-}
-
-function getAbsoluteHeight(el) {
-  let styles = window.getComputedStyle(el);
-  let margin = parseFloat(styles['marginTop']) +
-               parseFloat(styles['marginBottom']);
-
-  return Math.ceil(el.offsetHeight + margin);
-}
-
-function makeScreenScrollPoints(screens) {
-  const headerHeight = 90;
-  const screenScrollPoints = [(-1 * headerHeight - 80)];
-
-  for (let i = 0; i < screens.length - 1; i++) {
-    if (screens[i].id === "")
-      screenScrollPoints[screenScrollPoints.length - 1] += getAbsoluteHeight(screens[i]);
-    else
-      screenScrollPoints[screenScrollPoints.length] = screenScrollPoints[screenScrollPoints.length - 1] + getAbsoluteHeight(screens[i]) - 1;
-  }
-
-  return screenScrollPoints;
-}
-
-function intervalSearch(num, intervals) {
-  for (let i = 0; i < intervals.length - 1; i++) {
-    if (num >= intervals[i] && num < intervals[i + 1])
-      return i;
-  }
-  
-  return intervals.length - 1;
-}
-
-function clearActiveHeaderLinks() {
-  for (const headerLink of headerLinks)
-    headerLink.classList.remove('header__link_active');
-}
-
-function addActiveHeaderLink() {
-  headerLinks[activeLink].classList.add('header__link_active');
-}
-
-function changeLink(number) {
-  activeLink = number;
-  setTimeout(() => {
-    clearActiveHeaderLinks();
-    addActiveHeaderLink();
-  }, 150);
 }
 
 function whatWeDoImageMove(where) {
