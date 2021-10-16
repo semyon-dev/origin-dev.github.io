@@ -1174,9 +1174,10 @@ textarea.contacts__form-item_css-validate:valid {
   border-radius: 100%;
   background-color: #2998FF;
   z-index: 1000;
-  transition: right .5s cubic-bezier(0.68, -0.6, 0.32, 1.6),
-              bottom .5s cubic-bezier(0.68, -0.6, 0.32, 1.6),
-              background-color .25s .1s;
+  transition: right .6s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+              bottom .6s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+              background-color .25s,
+              transform .25s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
 .scroll-to-top svg {
@@ -1187,7 +1188,12 @@ textarea.contacts__form-item_css-validate:valid {
 .scroll-to-top:hover {
   outline: none;
   background-color: #00509A;
-  transition-delay: 0s;
+  transform: scale(1.1);
+}
+
+.scroll-to-top:active {
+  transform: scale(1);
+  transition-duration: .1s;
 }
 
 .scroll-to-top_active {
