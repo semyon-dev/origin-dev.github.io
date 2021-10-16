@@ -542,7 +542,7 @@ picture img {
 
   .projects__card {
     width: 100%;
-    margin-right: 0 !important;
+    margin-right: 0;
   }
 
   .projects__card:not(:nth-of-type(-n + 2)) {

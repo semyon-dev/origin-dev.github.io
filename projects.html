@@ -42,7 +42,7 @@
   <link rel="stylesheet" href="./css/footer.css">
 </head>
 
-<body>
+<body class="preload-transition">
 
   <!-------------------------- Content -------------------------->
   <header class="header">
@@ -137,6 +137,25 @@
     </svg>
     <span class="sr-only">Подняться выше</span>
   </a>
+
+  <!-------------------------- Templates -------------------------->
+  <template id="projects__template">
+    <div class="projects__card project-card">
+      <picture class="project-card__image">
+        <source
+          srcset=""
+          type="image/webp">
+        <source
+          srcset=""
+          type="image/jpg">
+        <img
+          alt="">
+      </picture>
+      <h3 class="project-card__title"></h3>
+      <p class="project-card__description"></p>
+      <a class="project-card__button button" href="#">Подробнее</a>
+    </div>
+  </template>
 
   <!-------------------------- Scripts -------------------------->
   <script src="./js/smooth-scroll.polyfills.min.js"></script>
