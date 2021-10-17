@@ -78,6 +78,7 @@ function backgroundImageSizeChange() {
 }
 
 function backgroundScroll(event) {
+  backgroundImageSizeChange();
   const heghtOfTheView        = window.innerHeight;
   const scrollablePartOfBody  = document.body.scrollHeight - heghtOfTheView;
   const percentOfScroll       = window.scrollY / scrollablePartOfBody;
