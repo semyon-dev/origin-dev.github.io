@@ -29,7 +29,7 @@ fetch("../content/content.json")
       project.querySelector('.project-card__button').href = `./projects.html#${i}`;
       projectsContent.append(project);
     }
-    backgroundImageSizeChange();
+    backgroundImage.style.height = `${1.5 * window.innerHeight}px`;
     backgroundScroll();
     setTimeout(() => {backgroundImage.style.transitionDuration = ''}, 500);
   });
@@ -74,7 +74,12 @@ document.addEventListener('scroll', e => {
 
 //functions
 function backgroundImageSizeChange() {
-  backgroundImage.style.height = `${1.5 * window.innerHeight}px`;
+  const currentImageSize = Number.parseInt(backgroundImage.style.height);
+  if (Number.isNaN(currentImageSize)) return;
+  const difference = Math.abs(1.5 * window.innerHeight - currentImageSize);
+  // console.log(difference);
+  if (difference > 150)
+    backgroundImage.style.height = `${1.5 * window.innerHeight}px`;
 }
 
 function backgroundScroll(event) {
