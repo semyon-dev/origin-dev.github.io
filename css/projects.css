@@ -166,7 +166,7 @@ main {
   object-position: top right;
   z-index: -1;
   background-color: #2998FF;
-  transition: top .5s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: top .5s linear;
 }
 
 .projects__header {
