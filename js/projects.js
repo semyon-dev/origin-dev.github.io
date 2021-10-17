@@ -29,13 +29,30 @@ fetch("../content/content.json")
       project.querySelector('.project-card__button').href = `./projects.html#${i}`;
       projectsContent.append(project);
     }
+    backgroundImageSizeChange();
     backgroundScroll();
-    setTimeout(() => {backgroundImage.style.transitionDuration = `${projects.length * 0.075}s`}, 500);
+    setTimeout(() => {backgroundImage.style.transitionDuration = ''}, 500);
   });
 
 
 
-// event listeners
+//event listeners
+(function(){ //zoom listener
+  let lastWidth = 0;
+  let lastHeight = 0;
+  function pollZoomFireEvent() {
+    let widthNow = window.innerWidth;
+    let heightNow = window.innerHeight;
+
+    if (lastWidth == widthNow && lastHeight == heightNow) return;
+    lastWidth = widthNow;
+    lastHeight = heightNow;
+    // Length changed, user must have zoomed, invoke listeners.
+    backgroundImageSizeChange();
+  }
+  setInterval(pollZoomFireEvent, 100);
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
   document.body.classList.remove('preload-transition');
 });
@@ -56,6 +73,10 @@ document.addEventListener('scroll', e => {
 
 
 //functions
+function backgroundImageSizeChange() {
+  backgroundImage.style.height = `${1.5 * window.innerHeight}px`;
+}
+
 function backgroundScroll(event) {
   const heghtOfTheView        = window.innerHeight;
   const scrollablePartOfBody  = document.body.scrollHeight - heghtOfTheView;

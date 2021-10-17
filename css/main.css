@@ -426,6 +426,7 @@ picture img {
 
 .project-card__image {
   width: 100%;
+  height: 300px;
   box-sizing: border-box;
   border: 1px solid #BEBEBE;
   border-radius: 16px;
@@ -509,6 +510,10 @@ picture img {
     margin-bottom: 4.8rem;
   }
 
+  .project-card__image {
+    height: 200px;
+  }
+
   .project-card__title {
     font-size: 2rem;
   }
@@ -552,6 +557,10 @@ picture img {
   .projects__card:not(:last-of-type) {
     margin-bottom: 1.6rem;
   }
+  
+  .project-card__image {
+    height: 250px;
+  }
 
   .project-card__title {
     font-size: 1.9rem;
@@ -575,6 +584,11 @@ picture img {
   }
 }
 
+@media screen and (max-width: 335px) {
+  .project-card__image {
+    height: 200px;
+  }
+}
 
 /* --------------------
       achievements
