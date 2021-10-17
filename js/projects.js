@@ -1,4 +1,6 @@
 // variables
+const backgroundImage = document.querySelector('.projects__background-image');
+
 const projectsContent = document.querySelector('.projects__content');
 const projectTemplate = document.querySelector('#projects__template').content;
 
@@ -27,6 +29,8 @@ fetch("../content/content.json")
       project.querySelector('.project-card__button').href = `./projects.html#${i}`;
       projectsContent.append(project);
     }
+    backgroundScroll();
+    setTimeout(() => {backgroundImage.style.transitionDuration = `${projects.length * 0.075}s`}, 500);
   });
 
 
@@ -37,6 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('scroll', e => {
+  //background image parallax effect
+  backgroundScroll(e);
   //scroll-to-top button
   if (window.scrollY >= window.innerHeight) {
     scrollToTopButton.classList.add('scroll-to-top_active');
@@ -47,3 +53,14 @@ document.addEventListener('scroll', e => {
     scrollToTopButton.tabIndex = -1;
   }
 });
+
+
+//functions
+function backgroundScroll(event) {
+  const heghtOfTheView        = window.innerHeight;
+  const scrollablePartOfBody  = document.body.scrollHeight - heghtOfTheView;
+  const percentOfScroll       = window.scrollY / scrollablePartOfBody;
+  const scrollablePartOfImage = backgroundImage.scrollHeight - heghtOfTheView;
+  
+  backgroundImage.style.top = `-${scrollablePartOfImage * percentOfScroll}px`;
+}
