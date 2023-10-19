@@ -31,7 +31,7 @@ const scrollToTopButton = document.querySelector('.scroll-to-top');
 
 
 // code
-fetch("../content/content.json")
+fetch("./content/content.json")
   .then(response => response.json())
   .then(json => {
     // projects rendering
@@ -59,7 +59,7 @@ fetch("../content/content.json")
       achievement.querySelector('.achievements__card-place').textContent = `${achievements[i].place} место`;
       achievementsSlider.append(achievement);
     }
-    
+
     // slider launch
     new Glide('.glide', {
       type: 'carousel',
@@ -162,7 +162,7 @@ formTel.addEventListener('input', e => {
 });
 
 formMessage.addEventListener('input', e => {
-  if (formMessage.value !== '') 
+  if (formMessage.value !== '')
     formMessage.classList.add('contacts__form-item_css-validate');
   else
     formMessage.classList.remove('contacts__form-item_css-validate');
@@ -183,13 +183,13 @@ form.addEventListener('submit', e => {
   formSubmit.blur();
   formButtonWait();
 
-  const _subject = formName.value ? 
-  `Origin Dev: Пользователь ${formName.value} оставил сообщение!` : 
+  const _subject = formName.value ?
+  `Origin Dev: Пользователь ${formName.value} оставил сообщение!` :
   'Origin Dev: Безымянный пользователь оставил сообщение!';
-  
+
   fetch("https://formsubmit.co/ajax/contact@origin-dev.tech", {
     method: "POST",
-    headers: { 
+    headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     },
