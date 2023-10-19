@@ -1,14 +1,14 @@
 // variables
-const onRoot = location.pathname == '/';
+const root = document.getElementById('root');
 
 const header = document.querySelector('.header');
 const headerLinks = header.querySelectorAll('.header__link');
 const headerLogoLink = header.querySelector('.header__logo-link');
 const headerHam = header.querySelector('.header__ham');
-const screens = onRoot ? document.querySelector('main').children : undefined;
+const screens = root?.children;
 
 let screenScrollPoints;
-let activeLink = onRoot ? 0 : undefined;
+let activeLink = root ? 0 : undefined;
 
 
 
@@ -35,13 +35,13 @@ const scrollOptions = {
     lastWidth = widthNow;
     lastHeight = heightNow;
     // Length changed, user must have zoomed, invoke listeners.
-    if (onRoot)
+    if (root)
       screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
   }
   setInterval(pollZoomFireEvent, 100);
 })();
 
-if (onRoot) {
+if (root) {
   document.addEventListener('scroll', e => {
     screenScrollPoints = makeScreenScrollPoints(Array.from(screens));
     const currentActive = intervalSearch(window.scrollY, screenScrollPoints);
@@ -64,7 +64,7 @@ headerLinks.forEach(link => {
         return;
       }
     }
-    
+
     myScrollTo(e.target);
     let delay = 800;
     if (e.target.classList.contains('header__link_active'))
@@ -116,7 +116,7 @@ function myScrollTo(scrollLink = headerLinks[0]) {
       }, 500);
     }
   }, 100);
-  
+
   setTimeout(() => {
     scrollLink.classList.remove('header__link_pre-active');
     headerLinks.forEach(link => link.classList.remove('header__link_not-active'));
@@ -151,7 +151,7 @@ function intervalSearch(num, intervals) {
     if (num >= intervals[i] && num < intervals[i + 1])
       return i;
   }
-  
+
   return intervals.length - 1;
 }
 
