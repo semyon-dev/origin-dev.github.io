@@ -13,7 +13,7 @@ let scrollToTopAnimation = new SmoothScroll('.scroll-to-top', {
   easing: 'easeInOutCubic',
   topOnEmptyHash: true
 });
-fetch("../content/content.json")
+fetch("./content/content.json")
   .then(response => response.json())
   .then(json => {
     // projects rendering
@@ -87,6 +87,6 @@ function backgroundScroll(event) {
   const scrollablePartOfBody  = document.body.scrollHeight - heghtOfTheView;
   const percentOfScroll       = window.scrollY / scrollablePartOfBody;
   const scrollablePartOfImage = backgroundImage.scrollHeight - heghtOfTheView;
-  
+
   backgroundImage.style.top = `-${scrollablePartOfImage * percentOfScroll}px`;
 }
